@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+    	<link rel="stylesheet" href="/static/main.css" type="text/css">
+    	<title> Tool to Visualize DFA & NFA Algorithms </title>
+
+	</head>
+
+	<body>
+
+	<br>
+
+	<p> <em> Project: </em> <h2> Tool to Visualize DFA & NFA Algorithms </h2> </p>
+	<p> <em> Time: </em> <h4> Spring 2021 </h4> </p>
+
+	<hr> 
+
+	<p> <em> Summary: </em> <h6> *INSERT SUMMARY OF PROJECT* </h6> </p>
+
+	<hr>
+
+	<p> <em> Code: </em> ** FIGURE OUT BEST WAY TO DISPLAY PROJECT </p>
+
+	<div>
+  	</div>
+
+	</body>
+
+</html>

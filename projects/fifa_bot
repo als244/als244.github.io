@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+    	<link rel="stylesheet" href="/static/main.css" type="text/css">
+    	<title> Trading Engine for FIFA Ultimate Team Marketplace </title>
+
+	</head>
+
+	<body>
+
+	<br> 
+	<p> <em> Project: </em> <h2> Trading Engine for FIFA Ultimate Team Marketplace </h2> </p>
+	<p> <em> Time: </em> <h4> Spring 2020 </h4> </p>
+
+	<hr> 
+
+	<p> <em> Summary: </em> <h6> *INSERT SUMMARY OF PROJECT* </h6> </p>
+
+	<hr>
+
+	<p> <em> Code: </em> ** FIGURE OUT BEST WAY TO DISPLAY PROJECT </p>
+
+	<div>
+  	</div>
+
+	</body>
+
+</html>
