@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+    	<link rel="stylesheet" href="/static/main.css" type="text/css">
+    	<title>Covid Breakout in Europe</title>
+
+	</head>
+
+	<body>
+
+	<br>
+
+	<p> <em> Place: </em> <h2> Amsterdam, Dublin, & Madrid </h2> </p>
+	<p> <em> Time: </em> <h4> March 2020 </h4> </p>
+	
+	<hr>
+
+	<div>
+  	</div>
+
+	</body>
+
+</html>

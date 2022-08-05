@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+    	<link rel="stylesheet" href="/static/main.css" type="text/css">
+    	<title>Costa Rica</title>
+
+	</head>
+
+	<body>
+
+	<br>
+
+	<p> <em> Place: </em> <h2> Costa Rica </h2> </p>
+	<p> <em> Time: </em> <h4> June 2021 </h4> </p>
+	
+	<hr>
+
+	<div>
+  	</div>
+
+	</body>
+
+</html>
