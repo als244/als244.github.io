@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+    	<link rel="stylesheet" href="/static/main.css" type="text/css">
+    	<title> Ski Bot </title>
+
+	</head>
+
+	<body>
+
+	<br> 
+	<p> <em> Project: </em> <h2> Ski Reservation Bot </h2> </p>
+	<p> <em> Time: </em> <h4> Winter 2020 </h4> </p>
+
+	<hr> 
+
+	<p> <em> Summary: </em> <h6> *INSERT SUMMARY OF PROJECT* </h6> </p>
+
+	<hr>
+
+	<a href="../project_code/ski_bot"> Code </a>
+
+	<div>
+  	</div>
+
+	</body>
+
+</html>

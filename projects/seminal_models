@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+    	<link rel="stylesheet" href="/static/main.css" type="text/css">
+    	<title> Seminal Models from Papers </title>
+
+	</head>
+
+	<body>
+
+	<br>
+	
+	<p> <em> Project: </em> <h2> Seminal Models from Papers </h2> </p>
+	<p> <em> Time: </em> <h4> Summer 2022 </h4> </p>
+
+	<hr> 
+
+	<p> <em> Summary: </em> <h6> *INSERT SUMMARY OF PROJECT* </h6> </p>
+	
+	<hr>
+
+	<a href="../project_code/seminal_models"> Code </a>
+
+	<div>
+  	</div>
+
+	</body>
+
+</html>
