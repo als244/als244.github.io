@@ -57,7 +57,37 @@
   <div>
     <h2 id="researchInterests"> Research Interests </h2>
 
-    <p> I plan to concentrate on problems involving parallel and concurrent computing. I'm hoping my research will span across various layers of the system stack: architecture, operating systems, distributed systems, & programming interfaces. I'd like to explore systems research by first diving into an application area to model the problem + system, and then generalize the core intuitions. The domain I'm most interesting in at present time are computer vision + robotics, graph processing, and physics simulations. It is certain that exciting, new domains and applications will pop up in the future -  my hunch is that memory optimization insights will be transferrable. It is important to me to combine theoretical ideas for system and algorithmic improvements with practical implementation. Efficient computing is economically important now, but it will also enable powerful algorithms to run on resource-constrained devices and inspire the intelligent algorithms of the future. </p>
+    <p> I plan to concentrate on problems involving parallel and concurrent computing. I'm hoping my research will span across various layers of the system stack: architecture, operating systems, distributed systems, & programming interfaces. I'd like to explore systems research by first diving into an application area to model a problem + system, and then generalize the core intuitions to other problems. The domains I'm most interesting in are computer vision + robotics, graph processing, and physics simulations. Exciting, new domains and applications are sure to pop up in the future -  my hunch and hope is that memory optimization insights will be transferrable. I find it important to combine theoretical ideas for system and algorithmic improvements with practical implementations. Efficient computing is economically important now, but it will also enable powerful algorithms to run on resource-constrained devices and inspire the intelligent algorithms of the future. </p>
+
+<u> <h4> Thematic Questions </h4> </u>
+
+<p> <ul>
+	<li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
+	     <ul> <li> Can we formalize the circumstances of when to priortize spatial vs. temporal? </li>
+		  <li> How has this answer changed in response to newer architectures, such as GPUs and FPGAs? </li>
+		  <li> Are the higher levels of the computing stack a limiting factor? </li>
+	     </ul>
+	</li>
+	<li> <b> How does a parallel and distributed environment impact the optimal decisions for the movement of data and scheduling of computation? </b> 
+		<ul> <li> How can we best utilize local, scratchpad memories? </li>
+		     <li> How can we best organize cooperation of data transfers between foreign nodes? </li>
+		     <li> Can we combine local memory optimizations with foreign cooperation? </li>
+		     <li> Can we model a theory of optimizing spatial and temporal localities based on certain classes of data structures and/or algorithms?
+			<ul>  <li> How would we unify the knowledge of data layout and pattern of computation? </li>
+			      <li> Could a framework of locality optimization be the same for various topologies and scales of memory hierarchies? </li> 
+			</ul>
+		     </li>
+		</ul>
+	</li>
+	<li> <b> Has the abstraction of locality from typical programming gone too far? </b>
+             <ul> <li> Has it impaired how programs are written? </li> 
+		  <li> Should the programmer be more responsible? </li>                    
+                  <li> If we had a different programming interface and compiler could we find a natural way to optimize locality </li>
+             </ul>
+        </li>
+    </ul>
+    <h5> It might be an era ripe for change </h5>
+</p>
 
 <u> <h4> History and Un-Addressed Issues </h4> </u>
 
@@ -67,7 +97,7 @@
 
 <p> Given the state of our current system stack, the task of programming algorithms to effectively utilize hardware caches is quite difficult. It requires first reverse-engineering (reading architecture manual and knowing OS's role) to uncover caching sizes and heuristics. With this information the programmer can then manipulating the machine to their advantage. This is not a feasible solution for widespread efficient-computing. There is the annoyance of portability, obscure data structure layouts, and manual prefetching. A different idea to have fast-code work with the current stack would be to push for cache-oblivious algorithms, which seem nice in theory. But unfortunately, constants really do matter in practice. From an intuitive standpoint, it is hard to see cache-oblivious programs reaching maximal practical performance - the program would lack optimal "syntactic" information about the machine! </p>.
 
-<u> <h4> Here & Now <h4> </u>
+<u> <h4> Here & Now </h4> </u>
 <p> Improving data movement through better, hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs and would like to generalize the methodology and expand the theory behind locality. This is a starting point and hopefully will lead to bolder changes down the line. </p>
 
 <u> <h4> Futuristic Thinking </h4> </u> 
