@@ -63,16 +63,16 @@
 
 <p> <ul>
 	<li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
-	     <ul> <li> How has this answer changed in response to newer architectures, such as GPUs and FPGAs? </li>
-		  <li> Are the higher levels of the computing stack a limiting factor? </li>
+	     <ul> <li> To what extent has this answer changed in response to newer architectures, such as GPUs and FPGAs? </li>
+		  <li> Are the higher levels of the systems stack a limiting factor? </li>
 		  <li> Can we formalize this picture? </li>
 	     </ul>
 	</li>
-	<li> <b> How does a parallel and distributed environment impact the optimal decisions for the movement of data and scheduling of computation? </b> 
+	<li> <b> How does a parallel and distributed environment impact the optimal decisions for data movement and computation scheduling? </b> 
 		<ul> <li> How can we best utilize local, scratchpad memories? </li>
 		     <li> How can we best organize cooperation of data transfers between foreign nodes? </li>
+		     <li> How will disaggregated memory and programmable NICs change this picture? </li>
 		     <li> Can we combine local memory optimizations with foreign cooperation? </li>
-		     <li> Will disaggregated memory and programmable NICs change this picture? </li>
 		     <li> Can we model a theory of optimizing spatial and temporal localities based on certain classes of data structures and/or algorithms?
 			<ul>  <li> How would we unify the knowledge of data layout and pattern of computation? </li>
 			      <li> Could a framework of locality optimization be the same for various topologies and scales of memory hierarchies? </li> 
@@ -81,31 +81,40 @@
 		</ul>
 	</li>
 	<li> <b> Has the abstraction of locality from typical programming gone too far? </b>
-             <ul> <li> Has it impaired how programs are written? </li> 
+             <ul> <li> Has it impaired how algorithms are devised? </li> 
 		  <li> Should the programmer be more responsible? </li>                    
                   <li> If we had a different programming interface + compiler could we find a natural way to optimize locality </li>
              </ul>
         </li>
+	<li> <b> Is the fear of parallel programming inflated? <b>
+		<ul> <li> If people were exposed to parallel programming earlier on in CS education, would the concepts be easier? (i.e. do people get stuck in their sequential mindset?) </li> 
+		     <li> How much more efficient would the world's software be if parallel programming paradigm was natural? How many cycles are wasted? </li>
+		     <li> With more and more data, and hungrier and hungrier algorithms, will/should knowing parallel programming techniques be necessary? </li>
+		</ul>
+	</li>
     </ul>
 </p>
 
 <u> <h4> My Naive View of History and Possibly Unaddressed Issues </h4> </u>
 
-<p> Memory is today's biggest computational issue: the general purpose von Neumann architectures were not designed to handle massive datasets and parallel computation. Unfortunately, the data-flow models proposed by Dennis, Gurd, and many others in the 60s, 70s, and 80s did not take off. The explosion in data availability paired with computationally demanding tasks and has shed light upon the consequences of the industry converging on von Neumann schemes – memory loads are the bottleneck by orders of magnitude. </p>
+<p> Memory is today's biggest computational issue: the general purpose von Neumann architectures were not designed to handle massive datasets and parallel computation. Unfortunately, the data-flow models proposed by Dennis, Gurd, and many others in the 60s, 70s, and 80s did not take off. The exponential growth of data availability paired with computationally demanding tasks and has shed light upon the consequences of the industry converging on von Neumann schemes – memory loads are the bottleneck by orders of magnitude. </p>
 
 <p> Enlarging out-of-order execution pipelines has served has a temporary solution to hide latency, but this approach is doomed to hit a wall under realistic physical and budget constraints. In tandem with loading memory out-of-order, we employ a diverse memory hierarchy to optimize where data is loaded from. Wilkes' crafty idea of utilizing caches to exploit spatial and temporal locality, natural computational phenomena, has served the industry well so-far. However, we will continue to face more and more demanding problems. The heuristics current systems use to manipulate cache memory can only work to such an extent – the machine's caching decisions lack "semantic" information about the program's future memory accesses! </p>
 
-<p> Given the state of our current system stack, the task of programming algorithms to effectively utilize hardware caches is quite difficult. It requires first reverse-engineering (reading architecture manual and knowing OS's role) to uncover caching sizes and heuristics. With this information the programmer can then manipulating the machine to their advantage. This is not a feasible solution for widespread efficient-computing. There is the annoyance of portability, obscure data structure layouts, and manual prefetching. A different idea to have fast-code work with the current stack would be to push for cache-oblivious algorithms, which seem nice in theory. But unfortunately, constants really do matter in practice. From an intuitive standpoint, it is hard to see cache-oblivious programs reaching maximal practical performance - the program would lack proper "syntactic" information about the machine's capabilities! </p>.
+<p> Given the state of our current system stack, the task of programming algorithms to effectively utilize hardware caches is quite difficult. It requires first reverse-engineering (reading architecture manual and knowing OS's role) to uncover caching sizes and heuristics. With this information the programmer can then manipulating the machine to their advantage. This is not a feasible solution for widespread efficient-computing. There is the annoyance of portability, obscure data structure layouts, and manual prefetching. A different idea to have fast-code work with the current stack would be to push for cache-oblivious algorithms, which seem nice in theory. But unfortunately, constants really do matter in practice. From an intuitive standpoint, it is hard to see cache-oblivious programs reaching maximal practical performance - the program would lack proper "syntactic" information about the machine's capabilities! </p>
 
 <u> <h4> Here & Now </h4> </u>
 
-<p> Improving data movement through better, hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs and would like to generalize the methodology and expand the theory behind locality. This is a starting point and hopefully will lead to bolder changes down the line. </p>
+<p> Improving data movement through hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs and would like to generalize the methodology and expand the theory behind locality. This is a starting point and hopefully will lead to bolder changes down the line. </p>
 
 <u> <h4> Futuristic Thinking </h4> </u> 
  
 <p> A clever compiler and language may be able to bridge the gap. This an algorithmic challenge, but it is also a massive engineering undertaking and a social problem as well. Compiler writers would need to find the right balance of ease of programming, but enough semantic information to tell the machine how to do its job properly. With the correct amount of information, hopefully the compiling algorithm can optimize for locality, but a good solution will likely require theoretical underpinnings that I'm not sure exist, yet. Further, programmers would need to learn a new interface. Still though, the smartest compiler in the world is only as good as the features offered by the bare-metal. Recently we have seen an explosion in architectures. Most notably, we now have GPUs with massive parallelism and scratchpad memories. These are features that change the notion of "locality" drastically because computations, accompanied by scratchpad memories, are occurring at different places within the chip and at different temporal frequencies! </p>
 
 <p> Now imagine we are in a distributed setting. Instead of scatchpad memory to register, we can scale the memory hierarchy upwards to be: disaggregated memory/foreign DRAM to local DRAM to scratchpad memory to registers. I believe the core problem of formalizing locality in order to optimize properly still holds and becomes more impactful. </p>
+
+<br>
+<br>
 
   </div>
 
