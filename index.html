@@ -62,18 +62,11 @@
 <u> <h4> Thematic Questions </h4> </u>
 
 <p> <ul>
-	<li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
-	     <ul> <li> To what extent has this answer changed in response to newer architectures, such as GPUs and FPGAs? </li>
-		  <li> How effective and scalable will processing-in-memory chips be? </li>
-		  <li> Are the higher levels of the system stack a limiting factor? </li>
-		  <li> Can we formalize this picture? </li>
-	     </ul>
-	</li>
 	<li> <b> How does a parallel and distributed environment impact the optimal decisions for data movement and computation scheduling? </b> 
 		<ul> <li> How can we best utilize local, scratchpad memories? </li>
 		     <li> How can we best organize cooperation of data transfers and computation between foreign nodes?
-		     	<ul> <li> A different meaning of "spatial locality", now not address space, but geographic location </li>
-		     		<li> How will disaggregated memory and programmable NICs change this picture? </li>
+		     	<ul> <li> A different notion of "spatial locality", now not address space, but geographic location </li>
+		     		<li> How will disaggregated memory, programmable NICs, and processing-in-memory change this picture? </li>
 		     	</ul> 
 		     </li>
 		     <li> Can we combine local memory optimizations with foreign cooperation? </li>
@@ -84,6 +77,12 @@
 		     </li>
 		</ul>	
 	</li>
+	<li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
+             <ul> <li> To what extent has this answer changed in response to newer architectures, such as GPUs and FPGAs? </li>
+                  <li> Are the higher levels of the system stack a limiting factor? </li>
+                  <li> Can we formalize this picture? </li>
+             </ul>
+        </li>
 	<li> <b> Has the abstraction of locality from typical programming gone too far? </b>
              <ul> <li> Has it impaired how algorithms are devised? </li> 
 		  <li> Should the programmer bear more or different responsibility? </li>
