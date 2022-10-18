@@ -88,12 +88,15 @@
 		  <li> Should the programmer bear more or different responsibility? </li>
 		  <li> Is virtual memory an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? 
 			<ul> <li> If so, under what circumstances (i.e. architectures, programs, system users, environments)? </li> 
-			      <li> Could we make L1 caches larger if they were not restricted by VIPT formatting? </li>
-			     <li> Could TLB budget and chip area be used for other purposes? </li>
-			     <li> What operating system and interface changes would be necessary to support a programming environment with physically addressed executables? </li>
+			     <li> What system changes (architecture, OS, compilation, or interface) would be necessary to support a programming environment that assumes physically addressed execution? What opportunities are there for improvements under this physically addressed assumption? 
+				     <ul> 
+				     	<li> Could we make L1 caches larger if they were not restricted by VIPT formatting? </li>
+				     	<li> Could TLB budget and chip area be used for other purposes? </li>
+				     </ul>
+			     </li>
 			</ul>
 		  </li>
-                  <li> If we had a different programming interface + compiler could we find a natural way to optimize locality? </li>
+                  <li> If we had a different interface + compiler could we find a natural way for programmers to optimize locality? </li>
              </ul>
         </li>
 	<li> <b> Is the fear of parallel programming inflated? </b>
