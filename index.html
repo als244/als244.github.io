@@ -71,19 +71,29 @@
 	</li>
 	<li> <b> How does a parallel and distributed environment impact the optimal decisions for data movement and computation scheduling? </b> 
 		<ul> <li> How can we best utilize local, scratchpad memories? </li>
-		     <li> How can we best organize cooperation of data transfers between foreign nodes? </li>
-		     <li> How will disaggregated memory and programmable NICs change this picture? </li>
+		     <li> How can we best organize cooperation of data transfers and computation between foreign nodes?
+		     	<ul> <li> A different meaning of "spatial locality", now not address space, but geographic location </li>
+		     		<li> How will disaggregated memory and programmable NICs change this picture? </li>
+		     	</ul> 
+		     </li>
 		     <li> Can we combine local memory optimizations with foreign cooperation? </li>
-		     <li> Can we model a theory of optimizing spatial and temporal localities based on certain classes of data structures and/or algorithms?
-			<ul>  <li> How would we unify the knowledge of data layout and pattern of computation? </li>
-			      <li> Could a framework of locality optimization be the same for various topologies and scales of memory hierarchies? </li> 
+		     <li> Can we model a theory of optimizing spatial (address space/topological) and temporal localities based on certain classes of data structures and/or algorithms?
+			<ul>  <li> How could a machine with knowledge of data layout and pattern of computation unify this information? </li>
+			      <li> Could a framework of locality optimization be the same for various scales of memory hierarchies and hierarchies? </li> 
 			</ul>
 		     </li>
-		</ul>
+		</ul>	
 	</li>
 	<li> <b> Has the abstraction of locality from typical programming gone too far? </b>
              <ul> <li> Has it impaired how algorithms are devised? </li> 
-		  <li> Should the programmer bear more or different responsibility? </li>                    
+		  <li> Should the programmer bear more or different responsibility? </li>
+		  <li> Is virtual memory an unnecessary bottleneck (considering RAM capacities now >>>> 60s)? 
+			<ul> <li> If so, under what circumstances? </li> 
+			      <li> Could we make L1 caches larger if they were not restricted by VIPT formatting? </li>
+			     <li> Could TLB budget and chip area be used for other purposes? </li>
+			     <li> What operating system and interface changes would be necessary to support a programming environment with physically addressed executables? </li>
+			</ul>
+		  </li>
                   <li> If we had a different programming interface + compiler could we find a natural way to optimize locality? </li>
              </ul>
         </li>
