@@ -65,14 +65,14 @@
 	<li> <b> How does a parallel and distributed environment impact the optimal decisions for data movement and computation scheduling? </b> 
 		<ul> <li> How can we best utilize local, scratchpad memories? </li>
 		     <li> How can we best organize cooperation of data transfers and computation between foreign nodes?
-		     	<ul> <li> A different notion of "spatial locality", now not address space, but geographic location </li>
+		     	<ul> <li> A different notion of "spatial locality", now not address space, but physical location </li>
 		     		<li> How will disaggregated memory, programmable NICs, and processing-in-memory change this picture? </li>
 		     	</ul> 
 		     </li>
 		     <li> Can we combine local memory optimizations with foreign cooperation? </li>
 		     <li> Can we model a theory of optimizing spatial (address space/topological) and temporal localities based on certain classes of data structures and/or algorithms?
 			<ul>  <li> How could a machine with knowledge of data layout and pattern of computation unify this information? </li>
-			      <li> Could a framework of locality optimization be the same for various scales of memory hierarchies and hierarchies? </li> 
+			      <li> Could a framework of locality optimization be the same for various scales of memory hierarchies and topologies? </li> 
 			</ul>
 		     </li>
 		</ul>	
@@ -86,7 +86,7 @@
 	<li> <b> Has the absence of locality-optimal thinking from typical programming gone too far? </b>
              <ul> <li> Has it impaired how algorithms are devised? </li> 
 		  <li> Should the programmer bear more or different responsibility? </li>
-		  <li> Is virtual memory an unnecessary bottleneck (considering RAM capacities now >>>> 60s)? 
+		  <li> Is virtual memory an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? 
 			<ul> <li> If so, under what circumstances (i.e. architectures, programs, system users, environments)? </li> 
 			      <li> Could we make L1 caches larger if they were not restricted by VIPT formatting? </li>
 			     <li> Could TLB budget and chip area be used for other purposes? </li>
