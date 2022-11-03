@@ -66,47 +66,6 @@
   <p> The heterogeneous computing landscape faces tremendous programmability headaches. With new generations of programmers being trained alongside big-data and accelerators, I’m optimistic that parallel thinking will become ubiquitous. To foster this widespread paradigm shift in algorithmic thought, I think it’s critical to design clear and principled interfaces that can facilitate maximizing hardware capabilities. </p>
 
 
-<u> <h4> Thematic Questions </h4> </u>
-
-<p> <ul>
-	<li> <b> How does a parallel and distributed environment impact the optimal decisions for data movement and computation scheduling? </b> 
-		<ul> <li> What algorithmic changes are necessary to harness the H100's new programmatic layer of thread block clusters and distributed shared memory? </li>
-			<li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this picture? </li>
-		   <li> Can we model a framework of optimizing spatial (address space/topological) and temporal localities based on certain classes of data structures and/or algorithms?
-			<ul> <li> Could this potential framework be the same for various scales of memory hierarchies and topologies? </li> 
-			</ul>
-		     </li>
-		</ul>	
-	</li>
-	<li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
-             <ul> <li> To what extent has this answer changed in response to newer architectures, such as GPUs and FPGAs? </li>
-                  <li> Are the higher levels of the system stack a limiting factor? </li>
-             </ul>
-        </li>
-	<li> <b> Has the absence of locality-optimal thinking from typical programming gone too far? </b>
-             <ul> <li> Has it impaired how algorithms are devised? 
-		  <ul> <li> Should the programmer bear more or different responsibility? </li> </ul>
-		  </li>
-		  <li> Is virtual memory sometimes an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? 
-			<ul> <li> What system changes (architecture, OS, compilation, or interface) would be beneficial to best support a programming environment that assumes physically addressed execution? What opportunities are there for improvements under this physically addressed assumption? 
-				     <ul> 
-				     	<li> Could we make L1 caches larger if they were not restricted by VIPT formatting? </li>				     				<li> How much savings from no TLB shootdowns? </li>
-				     </ul>
-			     </li>
-			</ul>
-		  </li>
-                  <li> If we had a different interface + compiler could we find a natural way for programmers to optimize locality? </li>
-             </ul>
-        </li>
-	<li> <b> Is the fear of parallel programming inflated? </b>
-		<ul> <li> If people were exposed to parallel programming earlier on in CS education, would the concepts be easier? (i.e. do people get stuck in their sequential mindset?) </li> 
-		     <li> How much more efficient would the world's software be if parallel programming paradigm was natural? How many cycles are wasted? </li>
-		     <li> With more and more data, and hungrier and hungrier algorithms, will/should knowing parallel programming techniques be necessary? </li>
-		</ul>
-	</li>
-    </ul>
-</p>
-
 <u> <h4> My Naive View of History and Possibly Unaddressed Issues </h4> </u>
 
 <p> Memory is today's biggest computational issue: the general purpose von Neumann architectures were not designed to handle massive datasets and parallel computation. Unfortunately, the data-flow models proposed by Dennis, Gurd, and many others in the 60s, 70s, and 80s did not take off. The exponential growth of data availability paired with computationally demanding tasks has revealed the consequences of the industry converging on von Neumann schemes – memory loads are the bottleneck by orders of magnitude. </p>
@@ -124,6 +83,47 @@
 <p> A clever compiler and language may be able to bridge the gap. It appears many smart folks are working on this topic – future is looking bright. This an algorithmic challenge, but it is also a massive engineering undertaking and a social problem as well. Compiler writers would need to find the right balance of ease of programming, but collect enough semantic information to tell the machine how to do its job properly. With the correct amount of information, hopefully the compiling algorithm can optimize for locality, but a good solution will likely require theoretical underpinnings that I'm not sure exist, yet. Further, programmers would need to learn a new interface. Still though, the smartest compiler in the world is only as good as the features offered by the bare-metal. Recently we have seen an explosion in architectures. Most notably, we now have GPUs with massive parallelism and scratchpad memories. These are features that change the notion of "locality" drastically because computations, accompanied by scratchpad memories, are occurring at different places within the chip and at different temporal frequencies! </p>
 
 <p> Now imagine we are in a distributed setting. We can scale the memory hierarchy upwards to be: disaggregated memory/foreign DRAM to local DRAM to scratchpad memory to registers. I believe the core goal of formalizing locality in order to properly optimize memory still holds and becomes more impactful. </p>
+
+<u> <h4> Thematic Questions </h4> </u>
+
+<p> <ul>
+  <li> <b> How does a parallel and distributed environment impact the optimal decisions for data movement and computation scheduling? </b> 
+    <ul> <li> What algorithmic changes are necessary to harness the H100's new programmatic layer of thread block clusters and distributed shared memory? </li>
+      <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this picture? </li>
+       <li> Can we model a framework of optimizing spatial (address space/topological) and temporal localities based on certain classes of data structures and/or algorithms?
+      <ul> <li> Could this potential framework be the same for various scales of memory hierarchies and topologies? </li> 
+      </ul>
+         </li>
+    </ul> 
+  </li>
+  <li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
+             <ul> <li> To what extent has this answer changed in response to newer architectures, such as GPUs and FPGAs? </li>
+                  <li> Are the higher levels of the system stack a limiting factor? </li>
+             </ul>
+        </li>
+  <li> <b> Has the absence of locality-optimal thinking from typical programming gone too far? </b>
+             <ul> <li> Has it impaired how algorithms are devised? 
+      <ul> <li> Should the programmer bear more or different responsibility? </li> </ul>
+      </li>
+      <li> Is virtual memory sometimes an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? 
+      <ul> <li> What system changes (architecture, OS, compilation, or interface) would be beneficial to best support a programming environment that assumes physically addressed execution? What opportunities are there for improvements under this physically addressed assumption? 
+             <ul> 
+              <li> Could we make L1 caches larger if they were not restricted by VIPT formatting? </li>                   <li> How much savings from no TLB shootdowns? </li>
+             </ul>
+           </li>
+      </ul>
+      </li>
+                  <li> If we had a different interface + compiler could we find a natural way for programmers to optimize locality? </li>
+             </ul>
+        </li>
+  <li> <b> Is the fear of parallel programming inflated? </b>
+    <ul> <li> If people were exposed to parallel programming earlier on in CS education, would the concepts be easier? (i.e. do people get stuck in their sequential mindset?) </li> 
+         <li> How much more efficient would the world's software be if parallel programming paradigm was natural? How many cycles are wasted? </li>
+         <li> With more and more data, and hungrier and hungrier algorithms, will/should knowing parallel programming techniques be necessary? </li>
+    </ul>
+  </li>
+    </ul>
+</p>
 
 <br>
 
