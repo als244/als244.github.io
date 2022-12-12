@@ -61,12 +61,15 @@
 
 <p> <ul>
   <li> <b> How does a parallel and distributed environment impact the optimal decisions for data movement and computation scheduling? </b> 
-    <ul> <li> What algorithmic changes are necessary to harness the H100's new programmatic layer of thread block clusters and distributed shared memory? </li>
+    <ul> 
+      <li> Can we model a framework of optimizing spatial (address space/topological) and temporal localities based on certain classes of data structures and/or algorithms?
+        <ul> 
+          <li> Could this potential framework be the same for various scales of memory hierarchies and topologies? </li> 
+        </ul>
+      </li>
       <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this formatting and scheduling picture? </li>
-       <li> Can we model a framework of optimizing spatial (address space/topological) and temporal localities based on certain classes of data structures and/or algorithms?
-      <ul> <li> Could this potential framework be the same for various scales of memory hierarchies and topologies? </li> 
-      </ul>
-         </li>
+      <li> What algorithmic changes are necessary to harness the H100's new programmatic layer of thread block clusters and distributed shared memory? </li>
+       
     </ul> 
   </li>
   <li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
