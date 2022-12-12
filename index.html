@@ -48,7 +48,7 @@
   <div>
     <h2 id="aboutMe"> About Me </h2>
 
-    <p> Hi, I'm Andrew Sheinberg. I'm currently living in Salt Lake City, UT where I've been volunteering remotely with Professor Abhishek Bhattacharjee's group at Yale, reading papers, programming side projects, and exploring nature. Prior to Utah, I lived in Chicago for around a year where I worked as an options trader on an index volatility strategy desk. Before that, I attended Yale University where I studied Computer Science & Mathematics. I grew up in Barrington, RI where I learned to enjoy athletics and mathletics. Next, I will be applying to graduate school to pursue a Computer Science PhD. I plan to research parallel computing and the memory hierarchy, with a focus on exploiting data locality. My road will likely take detours in architecture, operating systems, computer networks, and programming languages. </p>
+    <p> Hi, I'm Andrew Sheinberg. I'm currently living in Salt Lake City, UT where I've been volunteering remotely with Professor Abhishek Bhattacharjee's group at Yale, reading papers, programming side projects, and exploring nature. Prior to Utah, I lived in Chicago for around a year where I worked as an options trader on an index volatility strategy desk. Before that, I attended Yale University where I studied Computer Science & Mathematics. I grew up in Barrington, RI where I learned to enjoy athletics and mathletics. Next, I will be applying to graduate school to pursue a Computer Science PhD. I plan to research parallel computing and the memory hierarchy, with a focus on exploiting data locality. Detours in architecture, operating systems, computer networks, and programming languages are expected. </p>
 
     <p> I like taking pictures and have linked some of my favorite photos and memorable travel adventures. </p>
   </div>
@@ -57,41 +57,7 @@
   <div>
     <h2 id="researchInterests"> Research Interests </h2>
 
-  <p> I hope to harness the parallelism offered by modern hardware. I would like to dive deeper into the von Neumann memory bottleneck and examine how GPU and multi-core processors can best alleviate this organizational traffic-jam. The diverse memory hierarchy within parallel and heterogeneous systems poses challenges for exploiting spatial and temporal locality, and thus is a pain point for reaching maximal performance and energy efficiency. </p>
-
-  <p> My starting goal is to better orchestrate data placement, movement, and computation scheduling in the context of parallel computing. My hunch is that the scratchpad memory capabilities of GPUs' L1 caches are generally being under-utilized, except for in the most hand-tuned kernels. These scratchpad memories highlight an important need to cooperate the partitioning of data and computation. Nvidia's H100 added an additional layer to the programmatic hierarchy with thread block clusters and distributed shared memory; thus, researching locality at a processor scale is an especially rich and timely topic. Locality optimizations have been a fruitful research area dating back to Wilkes' seminal work on caches. I believe that a new architectural era warrants continued investigation into formalizing locality.  </p>
-
-  <p> Along with the tightest levels of the memory hierarchy, I am interested in helping optimize locality at a distributed scale, where programs are typically bottlenecked by networking in conjunction with memory. Heterogeneous and multi-GPU environments have become commonplace in a variety of tasks: deep neural network training, large scale graph processing, physics and chemistry simulations, climate and astronomical data processing, and many more applications. A more formal framework of "locality", and thus optimized software, would yield benefits for energy and run-time efficiencies. Moreover, substantial performance improvements may open doors to new heavy-duty computational applications. </p>
-
-  <em> <h4> On the Horizon </h4> </em>
-
-  <p> With new generations of programmers being trained alongside big-data and accelerators, I’m optimistic that parallel thinking will become ubiquitous. To foster this widespread paradigm shift in algorithmic thought, I think it’s critical to design clear and principled interfaces that facilitate maximizing hardware capabilities. I envision a future where AR glasses, healthcare nanotechnology, and robotic sensors collect orders of magnitude more data than available today. Intelligent, cooperative algorithms will rely on efficient parallel computation, and eventually quantum computation, to process such vast amounts of information. </p>
-
-<u> <h3> My Naive View of History and Possibly Unaddressed Issues </h3> </u>
-
-<p> Memory is today's biggest computational issue: the general purpose von Neumann architectures were not designed to handle massive datasets and parallel computation. Unfortunately, the data-flow models proposed by Dennis, Gurd, and many others in the 60s, 70s, and 80s did not take off. The exponential growth of data availability paired with computationally demanding tasks has revealed the consequences of the industry converging on von Neumann schemes – loading data is the clear bottleneck.
-  
-<p> Enlarging out-of-order execution pipelines has served has a temporary solution to hide latency, but this approach is doomed to hit a wall under realistic physical and budget constraints. In tandem with loading memory out-of-order, we employ a diverse memory hierarchy to optimize where data is loaded from. Wilkes' crafty idea of utilizing caches to exploit spatial and temporal locality, natural computational phenomena, has served the industry well so-far. However, we will continue to face more and more demanding problems. The heuristics current systems use to manipulate cache memory can only work to such an extent – the machine's caching decisions lack "semantic" information about the program's future memory accesses! </p>
-
-<p> Given the state of our current system stack, the task of programming algorithms to effectively utilize hardware caches is quite difficult. It requires first reverse-engineering (reading architecture manual and knowing OS's role) to uncover caching sizes and heuristics. With this information, the programmer can then manipulate the machine (tediously) to their advantage. This is not a feasible solution for widespread efficient-computing. There is the annoyance of portability, obscure data structure layouts, and manual prefetching. A different idea to have fast-code work with the current stack would be to push for cache-oblivious algorithms, which do seem nice in theory. But unfortunately, constants really matter in practice. From an intuitive standpoint, it is hard to imagine cache-oblivious programs reaching maximal practical performance - the program would lack proper "syntactic" information about the machine's capabilities! </p>
-
-<u> <h3> Here & Now </h3> </u>
-
-<p> Improving data movement through hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs by taking advantage of the scratchpad feature as opposed to the general hardware, heuristic-based L1 policies. Furthermore, there is a new software-managed memory layer in Nvidia's H100 GPU (thread block clusters and distributed shared memory) and this presents an opportunity to modify and improve communication and synchronization patterns. I would like to find an application ripe for optimization and then generalize the methodology to expand the theory behind locality. This is a starting point and hopefully will lead to bolder changes down the line. </p>
-
-<u> <h3> Futuristic Thinking </h3> </u> 
- 
-<p> A clever compiler and language may be able to bridge the gap. It appears many smart folks are working on this topic – the future is looking bright. This an algorithmic challenge, but moreso a social problem. </p>
-
-<p> Compiler writers would need to find the right balance of ease of programming, but collect enough semantic information to tell the machine how to do its job properly. With the correct amount of information, hopefully the compiling algorithm can optimize for locality, but a good solution will likely require theoretical underpinnings that I'm not sure exist, yet. I imagine playing a role here. </p>
-
-</p> The harder challenges lie at a non-technical level, though. Chipmakers would ideally cooperate to enable full control of their GPUs, rather than forcing machines to use proprietary drivers. Further, programmers would need to learn a new interface. Still though, the smartest compiler in the world is only as good as the features offered by the bare-metal. </p>
-
-<p> Recently we have seen an explosion in architectures. Most notably, we now have GPUs with massive parallelism and scratchpad memories. These are features that change the notion of "locality" drastically because computations, accompanied by scratchpad memories, are occurring at different places within the chip and at different temporal frequencies! </p>
-
-<p> Now imagine we are in a distributed setting. We can scale the memory hierarchy upwards to be: disaggregated memory/foreign DRAM to local DRAM to scratchpad memory to registers. I believe the core goal of formalizing locality in order to properly optimize memory still holds and becomes more impactful. </p>
-
-<h3> Thematic Questions </h3>
+    <h3> Thematic Questions </h3>
 
 <p> <ul>
   <li> <b> How does a parallel and distributed environment impact the optimal decisions for data movement and computation scheduling? </b> 
@@ -135,6 +101,43 @@
   </li>
     </ul>
 </p>
+
+ <br>
+
+  <p> I hope to harness the parallelism offered by modern hardware. I would like to dive deeper into the von Neumann memory bottleneck and examine how GPU and multi-core processors can best alleviate this organizational traffic-jam. The diverse memory hierarchy within parallel and heterogeneous systems poses challenges for exploiting spatial and temporal locality, and thus is a pain point for reaching maximal performance and energy efficiency. </p>
+
+  <p> My starting goal is to better orchestrate data placement, movement, and computation scheduling in the context of parallel computing. My hunch is that the scratchpad memory capabilities of GPUs' L1 caches are generally being under-utilized, except for in the most hand-tuned kernels. These scratchpad memories highlight an important need to cooperate the partitioning of data and computation. Nvidia's H100 added an additional layer to the programmatic hierarchy with thread block clusters and distributed shared memory; thus, researching locality at a processor scale is an especially rich and timely topic. Locality optimizations have been a fruitful research area dating back to Wilkes' seminal work on caches. I believe that a new architectural era warrants continued investigation into formalizing locality.  </p>
+
+  <p> Along with the tightest levels of the memory hierarchy, I am interested in helping optimize locality at a distributed scale, where programs are typically bottlenecked by networking in conjunction with memory. Heterogeneous and multi-GPU environments have become commonplace in a variety of tasks: deep neural network training, large scale graph processing, physics and chemistry simulations, climate and astronomical data processing, and many more applications. A more formal framework of "locality", and thus optimized software, would yield benefits for energy and run-time efficiencies. Moreover, substantial performance improvements may open doors to new heavy-duty computational applications. </p>
+
+  <em> <h4> On the Horizon </h4> </em>
+
+  <p> With new generations of programmers being trained alongside big-data and accelerators, I’m optimistic that parallel thinking will become ubiquitous. To foster this widespread paradigm shift in algorithmic thought, I think it’s critical to design clear and principled interfaces that facilitate maximizing hardware capabilities. I envision a future where AR glasses, healthcare nanotechnology, and robotic sensors collect orders of magnitude more data than available today. Intelligent, cooperative algorithms will rely on efficient parallel computation, and eventually quantum computation, to process such vast amounts of information. </p>
+
+<u> <h3> My Naive View of History and Possibly Unaddressed Issues </h3> </u>
+
+<p> Memory is today's biggest computational issue: the general purpose von Neumann architectures were not designed to handle massive datasets and parallel computation. Unfortunately, the data-flow models proposed by Dennis, Gurd, and many others in the 60s, 70s, and 80s did not take off. The exponential growth of data availability paired with computationally demanding tasks has revealed the consequences of the industry converging on von Neumann schemes – loading data is the clear bottleneck.
+  
+<p> Enlarging out-of-order execution pipelines has served has a temporary solution to hide latency, but this approach is doomed to hit a wall under realistic physical and budget constraints. In tandem with loading memory out-of-order, we employ a diverse memory hierarchy to optimize where data is loaded from. Wilkes' crafty idea of utilizing caches to exploit spatial and temporal locality, natural computational phenomena, has served the industry well so-far. However, we will continue to face more and more demanding problems. The heuristics current systems use to manipulate cache memory can only work to such an extent – the machine's caching decisions lack "semantic" information about the program's future memory accesses! </p>
+
+<p> Given the state of our current system stack, the task of programming algorithms to effectively utilize hardware caches is quite difficult. It requires first reverse-engineering (reading architecture manual and knowing OS's role) to uncover caching sizes and heuristics. With this information, the programmer can then manipulate the machine (tediously) to their advantage. This is not a feasible solution for widespread efficient-computing. There is the annoyance of portability, obscure data structure layouts, and manual prefetching. A different idea to have fast-code work with the current stack would be to push for cache-oblivious algorithms, which do seem nice in theory. But unfortunately, constants really matter in practice. From an intuitive standpoint, it is hard to imagine cache-oblivious programs reaching maximal practical performance - the program would lack proper "syntactic" information about the machine's capabilities! </p>
+
+<u> <h3> Here & Now </h3> </u>
+
+<p> Improving data movement through hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs by taking advantage of the scratchpad feature as opposed to the general hardware, heuristic-based L1 policies. Furthermore, there is a new software-managed memory layer in Nvidia's H100 GPU (thread block clusters and distributed shared memory) and this presents an opportunity to modify and improve communication and synchronization patterns. I would like to find an application ripe for optimization and then generalize the methodology to expand the theory behind locality. This is a starting point and hopefully will lead to bolder changes down the line. </p>
+
+<u> <h3> Futuristic Thinking </h3> </u> 
+ 
+<p> A clever compiler and language may be able to bridge the gap. It appears many smart folks are working on this topic – the future is looking bright. This an algorithmic challenge, but moreso a social problem. </p>
+
+<p> Compiler writers would need to find the right balance of ease of programming, but collect enough semantic information to tell the machine how to do its job properly. With the correct amount of information, hopefully the compiling algorithm can optimize for locality, but a good solution will likely require theoretical underpinnings that I'm not sure exist, yet. I imagine playing a role here. </p>
+
+</p> The harder challenges lie at a non-technical level, though. Chipmakers would ideally cooperate to enable full control of their GPUs, rather than forcing machines to use proprietary drivers. Further, programmers would need to learn a new interface. Still though, the smartest compiler in the world is only as good as the features offered by the bare-metal. </p>
+
+<p> Recently we have seen an explosion in architectures. Most notably, we now have GPUs with massive parallelism and scratchpad memories. These are features that change the notion of "locality" drastically because computations, accompanied by scratchpad memories, are occurring at different places within the chip and at different temporal frequencies! </p>
+
+<p> Now imagine we are in a distributed setting. We can scale the memory hierarchy upwards to be: disaggregated memory/foreign DRAM to local DRAM to scratchpad memory to registers. I believe the core goal of formalizing locality in order to properly optimize memory still holds and becomes more impactful. </p>
+
 
 <br>
 
