@@ -63,8 +63,10 @@
   <li> <b> How does a parallel and distributed environment impact the optimal decisions for data placement, data movement, and computation scheduling? </b> 
     <ul> 
       <li> Can we model a framework of optimizing spatial (address space/topological) and temporal localities based on certain classes of data structures and/or algorithms?
+        <br>
         <ul> 
           <li> Given assumptions at an architectural level (latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), can we devise a theoretical model to optimally map classes of computation and communication/synchronization patterns onto distributed hardware?
+            <br>
             <ul>
               <li> How do we deal with the tradeoff between computation cost and communication cost under fixed memory capacity? When to use redundancy? </li>
             </ul>
@@ -80,7 +82,6 @@
               <li> What is the equivalent of Belady's (1966) algorithm in context of parallel and distributed caches? </li> 
               <li> To what extent has this answer changed in response to newer architectures, such as GPUs and FPGAs? 
                   <ul>
-
                     <li> Are we using the scratchpad memory capabilities of GPUs' L1 caches optimally? (i.e. are we cooperating launching kernels and allocating/assigning memory appropriately?) </li> 
                     <li> What algorithmic changes are necessary to harness the H100's new programmatic layer of thread block clusters and distributed shared memory? </li>
                   </ul>
@@ -96,14 +97,18 @@
             </ul>
         </li>
         <li> Is virtual memory sometimes an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? 
+        <br>
         <ul> 
           <li> What system changes (architecture, OS, compilation/interface, or networking) would be beneficial to best support a programming environment that assumes physically addressed execution?
-            <ul> Are there system design opportunities under this physically addressed assumption? 
+            <br>
+            <ul> 
+            <li> Are there system design opportunities under this physically addressed assumption? 
              <ul> 
               <li> Could we make L1 caches larger if they were not restricted by VIPT formatting? </li>                   
               <li> How much savings from no TLB shootdowns? </li>
               <li> Would physically addressed execution simplify OS/networking stacks, such that it would enhance parallel programs at a distributed scale? </li>
              </ul>
+            </li>
             </ul>
            </li>
         </ul>
