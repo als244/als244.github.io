@@ -64,7 +64,11 @@
     <ul> 
       <li> Can we model a framework of optimizing spatial (address space/topological) and temporal localities based on certain classes of data structures and/or algorithms?
         <ul> 
-          <li> Given assumptions at an architectural level (latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), can we devise a theoretical model to optimally map classes of communication and synchronization patterns onto distributed hardware? </li>
+          <li> Given assumptions at an architectural level (latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), can we devise a theoretical model to optimally map classes of communication and synchronization patterns onto distributed hardware?
+            <ul>
+              <li> How do we deal with the tradeoff between computation cost and communication cost under fixed memory capacity? When to use redundancy? </li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this formatting and scheduling picture? </li>
