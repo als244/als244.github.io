@@ -135,13 +135,13 @@
 
 <u> <h3> Here & Now </h3> </u>
 
-<p> Improving data movement through hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs by taking advantage of the scratchpad feature as opposed to the general hardware, heuristic-based L1 policies. Furthermore, there is a new software-managed memory layer in Nvidia's H100 GPU (thread block clusters and distributed shared memory) and this presents an opportunity to modify and improve communication and synchronization patterns. I would like to find an application ripe for optimization and then generalize the methodology to expand the theory behind locality. This is a starting point and hopefully will lead to bolder changes down the line. </p>
+<p> Improving data movement through hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs by better taking advantage of the scratchpad feature as opposed to the general hardware, heuristic-based L1 policies. Furthermore, there is a new software-managed memory layer in Nvidia's H100 GPU (thread block clusters and distributed shared memory) and this presents an opportunity to modify and improve communication and synchronization patterns. </p>
 
 <u> <h3> Futuristic Thinking </h3> </u> 
  
 <p> A clever compiler and language may be able to bridge the gap. This an algorithmic challenge, but moreso a social problem. </p>
 
-<p> Compiler writers would need to find the right balance of ease of programming, but collect enough semantic information to tell the machine how to do its job properly. With the correct amount of information, hopefully the compiling algorithm can optimize for locality, but a good solution will likely require theoretical underpinnings that I'm not sure exist, yet. I imagine playing a role here. </p>
+<p> Compiler writers would need to find the right balance of ease of programming, but collect enough semantic information to tell the machine how to do its job properly. With the correct amount of information, hopefully the compiling algorithm can optimize for locality, but a good solution will likely require theoretical underpinnings that I'm not sure exist, yet. </p>
 
 </p> The harder challenges lie at a non-technical level, though. Chipmakers would ideally cooperate to enable full control of their GPUs, rather than forcing machines to use proprietary drivers. Further, programmers would need to learn a new interface. Still though, the smartest compiler in the world is only as good as the features offered by the bare-metal. </p>
 
