@@ -75,10 +75,10 @@
   <li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
             <ul> 
               <li> <em> What is an analogous version of Belady's (1966) algorithm in the context of parallel caches and distributed memory? </em> </li> 
-              <li> To what extent has this answer changed in response to newer architectures, such as GPUs and FPGAs? 
+              <li> To what extent has this answer changed in response to newer architectures, such as GPUs, CGRAs, and FPGAs? 
                   <ul>
                     <li> Are we using the scratchpad memory capabilities of GPUs' L1 caches optimally? (i.e. are we cooperating launching kernels and allocating/assigning memory appropriately?) </li> 
-                    <li> What algorithmic changes are necessary to harness the H100's new programmatic layer of thread block clusters and distributed shared memory? </li>
+                    <li> Does a solution to this problem help solve challenges with the compilation process for reconfigurable chips? </li>
                   </ul>
               </li>
               <li> Are the higher levels of the system stack a limiting factor? </li>
@@ -144,7 +144,7 @@
 
 <u> <h3> Here & Now </h3> </u>
 
-<p> Improving data movement through hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs by better taking advantage of the scratchpad feature as opposed to the general hardware, heuristic-based L1 policies. Furthermore, there is a new software-managed memory layer in Nvidia's H100 GPU (thread block clusters and distributed shared memory) and this presents an opportunity to modify and improve communication and synchronization patterns. </p>
+<p> Improving data movement through hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs by better taking advantage of the scratchpad feature as opposed to the general hardware, heuristic-based L1 policies. Furthermore, could this problem be extended to create better ways of designing re-configurable chips? </p>
 
 <u> <h3> Futuristic Thinking </h3> </u> 
  
@@ -152,9 +152,9 @@
 
 <p> Compiler writers would need to find the right balance of ease of programming, but collect enough semantic information to tell the machine how to do its job properly. With the correct amount of information, hopefully the compiling algorithm can optimize for locality, but a good solution will likely require theoretical underpinnings that I'm not sure exist, yet. </p>
 
-</p> The harder challenges lie at a non-technical level, though. Chipmakers would ideally cooperate to enable full control of their GPUs, rather than forcing machines to use proprietary drivers. Further, programmers would need to learn a new interface. Still though, the smartest compiler in the world is only as good as the features offered by the bare-metal. </p>
+</p> The harder challenges lie at a non-technical level, though. Chipmakers would ideally cooperate to enable full control of their accelerators, rather than forcing machines to use proprietary drivers. Further, programmers would need to learn a new interface. Still though, the smartest compiler in the world is only as good as the features offered by the bare-metal. </p>
 
-<p> Recently we have seen an explosion in architectures. Most notably, we now have GPUs with massive parallelism and scratchpad memories. These are features that change the notion of "locality" drastically because computations, accompanied by scratchpad memories, are occurring at different places within the chip and at different temporal frequencies! </p>
+<p> Recently we have seen an explosion in architectures. Most notably, we now have GPUs with massive parallelism and scratchpad memories. FPGAs and CGRAs are more special purpose, but both utilize parallelism and locality to bolster performance and efficiency. These are features that change the notion of "locality" drastically because computations, accompanied by scratchpad memories, are occurring at different places within the chip and at different temporal frequencies! </p>
 
 <p> Now imagine we are in a distributed setting. We can scale the memory hierarchy upwards to be: disaggregated memory/foreign DRAM to local DRAM to scratchpad memory to registers. I believe the core goal of formalizing locality in order to properly optimize memory still holds and becomes more impactful. </p>
 
