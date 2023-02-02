@@ -64,9 +64,9 @@
     <ul> 
         <li> Given some assumptions at an architectural level (number of cores/latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), <em> can we devise a theoretical model to optimally map classes of computation and communication/synchronization patterns onto distributed hardware? </em>
             <ul>
-              <li> How do we deal with the tradeoff between computation cost and communication cost under fixed memory capacity? When to use redundancy? </li>
-              <li> Is there any connection with the multi-user variant of Shannon's (1948) information theory? </li>
-              <li> Does there already exist a game-theoretic, linear programming approach (i.e. polyhedral analysis/compilation literature)? But would this change with new architectures and programming models? </li>
+	      <li> Does there already exist a game-theoretic, linear programming approach (i.e. polyhedral analysis/compilation literature)? But would this change with new architectures and programming models? What about for specialized tensor computations such as in Kjolstad (2017)? </li>
+              <li> How do we deal with the tradeoff between computation cost and communication cost under fixed memory capacity? When to use redundancy? Exemplified for MatMul by Solomonik & Demmel (2011) </li>
+	      <li> Is there any connection with the multi-user variant of Shannon's (1948) information theory? </li>
             </ul>
         </li>
       <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this formatting and scheduling picture? </li>
