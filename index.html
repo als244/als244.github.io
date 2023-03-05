@@ -64,12 +64,17 @@
     <ul> 
         <li> Given some assumptions at an architectural level (number of cores/latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), <em> can we devise a theoretical model to optimally map classes of computation and communication/synchronization patterns onto distributed hardware? </em>
             <ul>
-	      <li> Does there already exist a game-theoretic, linear programming approach that is future-proof? Does the polyhedral analysis/compilation literature, such as Bondhugula et al. (2008) or Baghdadi et al. (2019), need to adapt to new architectures and programming models? What about for specialized tensor computations such as in Kjolstad et al. (2017)? </li>
+	      <li> Does there already exist a game-theoretic, linear programming approach that is future-proof? Does the polyhedral analysis/compilation literature, such as Bondhugula et al. (2008) or Baghdadi et al. (2019), need to adapt to new architectures and programming models? What about for specialized tensor computations such as in Kjolstad et al. (2017)? 
+	      <ul>
+			<li> A very similar type of question explored in the ML domain demonstrated by the TVM (Chen et al., 2018) and Triton (Tillet et al., 2019) compilers...			
+			</li>
+	      </ul>
+	      </li>
               <li> How do we deal with the tradeoff between computation cost and communication cost under fixed memory capacity? When to use redundancy? Demonstrated by the 2.5D Matrix Multiplication and LU Decomposition algorithms devised by Solomonik & Demmel (2011) </li>
 	      <li> Is there any connection with the multi-user variant of Shannon's (1948) information theory? </li>
             </ul>
         </li>
-      <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this formatting and scheduling picture? </li>
+      <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this formatting and scheduling picture? Something taking advantage of a performant distributed/disaggregated system such as MIND (Lee et al., 2021) </li>
     </ul> 
   </li>
   <li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
