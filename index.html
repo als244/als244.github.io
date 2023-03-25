@@ -48,7 +48,7 @@
   <div>
     <h2 id="aboutMe"> About Me </h2>
 
-    <p> Hi, I'm Andrew Sheinberg. I will be starting at Princeton pursuing a Computer Science PhD. Before Princeton, I spent the year preparing for grad school while living in Utah and working with Professor Abhishek Bhattacharjee's group at Yale. Prior to Utah, I lived in Chicago for around a year where I worked as an options trader on an index volatility strategy desk. Before that, I attended Yale University where I studied Computer Science & Mathematics. I grew up in Barrington, RI. I am researching computer systems, with an emphasis on performance.
+    <p> Hi, I'm Andrew Sheinberg. I will be starting at Princeton pursuing a Computer Science PhD. I have been spending the year preparing for grad school while living in Utah and working with Professor Abhishek Bhattacharjee's group at Yale. Prior to Utah, I lived in Chicago for around a year where I worked as an options trader on an index volatility strategy desk. Before that, I attended Yale University where I studied Computer Science & Mathematics. I grew up in Barrington, RI. I am researching computer systems, with an emphasis on performance.
 	</p>
 
     <p> I like taking pictures and have linked some of my favorite photos and memorable travel adventures. </p>
@@ -67,7 +67,7 @@
             <ul>
 	      <li> Does there already exist a game-theoretic, linear programming approach that is future-proof? Does the polyhedral analysis/compilation literature, such as Bondhugula et al. (2008) or Baghdadi et al. (2019), need to adapt to new architectures and programming models? What about for specialized tensor computations such as in Kjolstad et al. (2017)? 
 	      <ul>
-			<li> A very similar type of question explored in the ML domain. Exemplary works include the TVM (Chen et al., 2018) and Triton (Tillet et al., 2019) compilers and the WACO scheduler and formatter (Won et al., 2023). TVM and WACO utilize learned functions to predict performance and thus explore the scheduling/formatting space while Triton takes a more analytic apporach of constructing a tiled abstraction that is conducive to optimizations. 			
+			<li> A very similar type of question explored in the ML domain; an extremely hot-topic in recent literature (MLSys, ASPLOS, SOSP/OSDI, etc.) . Some representative works include the TVM (Chen et al., 2018) and Triton (Tillet et al., 2019) compilers and the WACO scheduler and formatter (Won et al., 2023). TVM and WACO utilize learned functions to predict performance and thus explore the scheduling/formatting space while Triton takes a more analytic apporach of constructing a tiled abstraction that is conducive to optimizations. 			
 			</li>
 	      </ul>
 	      </li>
@@ -100,24 +100,20 @@
           <li> What system changes (architecture, OS, compilation/interface, or networking) would be beneficial to best support a programming environment that assumes physically addressed execution?
             <ul> 
             <li> Are there system design opportunities under this physically addressed assumption? 
-             <ul> 
-              <li> Could we make L1 caches larger if they were not restricted by VIPT formatting? </li>                   
-              <li> How much savings from no TLB shootdowns? </li>
-              <li> Would physically addressed execution simplify OS/networking stacks, such that it would enhance parallel programs at a distributed scale? </li>
-             </ul>
+             <ul>                    
+	      <li> How much savings from no TLB shootdowns? </li>
+              <li> Would physically addressed execution create new opportunities, or simplify OS/networking stacks, such that it would enhance parallel programs at a distributed scale? </li>
             </li>
             </ul>
            </li>
            <li> Under what circumstances (other than embedded systems) might VM be an unnecessary bottleneck? 
             <ul>
-              <li> Programming environments with single or just a few hungry processes? </li>
-              <li> Parallel and distributed applications? </li>
-              <li> Other situations...? </li>
+              <li> Parallel and distributed applications with single or just a few hungry processes...? </li>
             </ul>
             </li>
         </ul>
       </li>
-       <li> Has it impaired how algorithms are devised? 
+       <li> Have the abstractions and indirection of VM impaired how data is structured and how algorithms are devised? 
             <ul> 
               <li> Should the programmer bear more or different responsibility? </li> 
               <li> If we had a different interface + compiler could we find a natural way for programmers to optimize locality? </li>
