@@ -53,7 +53,7 @@
 		       <li> Imagine a quantum processor or even distributed quantum processors cooperating on a parallel algorithm. Is this a completely new problem? A harder version than with classical computers? Or easier...? What will the I/O and memory systems look like in the inevitable quantum era? </li>
         </ul> 
     </li>
-    <li> <b> Are the existing job scheduling managers for clusters (e.g. SLURM) modern, efficient, and friendly enough? </b>
+    <li> <b> Are the existing job scheduling managers for clusters, such as SLURM (Yoo et al. 2003), modern, efficient, and friendly enough? </b>
         <ul>
           <li> Given the explosion in accelerators, we would ideally like a system that is compatible with hardware from various vendors. There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable.  </li>
           <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, and all other sorts of accelators can be seamlessly utilized by a cluster manager? </li>
