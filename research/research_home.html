@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Andrew Sheinberg">
+        <meta name="keywords" content="Andrew Sheinberg">
+        <meta name="author" content="Andrew Sheinberg">
+      <title>Research</title>
+
+  </head>
+
+  <body>
+
+  <br>
+
+  <hr>
+
+  <h4> Publications </h4>
+
+  <a href="publications.html">Publications</a>
+
+  <hr>
+
+  <h1> Research Interests </h1>
+
+  <hr> 
+
+  <div>
+
+    <h3> Thematic Questions </h3>
+
+    <p> 
+      <ul>
+        <li> <b> How does a parallel and distributed environment impact the optimal decisions for data placement, data movement, and computation scheduling? </b> 
+          <ul> 
+            <li> Given some assumptions at an architectural level (number of cores/latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), <em> can we devise a theoretical model to "optimally" map classes of computation and communication/synchronization patterns onto distributed hardware? </em>
+              <ul>
+	               <li> Does there already exist a game-theoretic, linear programming approach that is future-proof? Does the polyhedral analysis/compilation literature, such as Bondhugula et al. (2008) or Baghdadi et al. (2019), need to adapt to new architectures and programming models? What about for specialized tensor computations such as in Kjolstad et al. (2017)? 
+	                 <ul>
+			               <li> A very similar type of question explored in the ML domain; an extremely hot-topic in recent literature (MLSys, ASPLOS, SOSP/OSDI, etc.) . Some representative works include the TVM (Chen et al., 2018) and Triton (Tillet et al., 2019) compilers and the WACO scheduler and formatter (Won et al., 2023). TVM and WACO utilize learned functions to predict performance and thus explore the scheduling/formatting space while Triton takes a more analytic apporach of constructing a tiled abstraction that is conducive to optimizations. 			
+			               </li>
+	                 </ul>
+	               </li>
+                <li> How do we deal with the tradeoff between computation cost and communication cost under fixed memory capacity? When to use redundancy? Demonstrated by the 2.5D Matrix Multiplication and LU Decomposition algorithms devised by Solomonik & Demmel (2011) </li>
+                <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this formatting and scheduling picture? Something taking advantage of a performant distributed/disaggregated system such as MIND (Lee et al., 2021) </li>
+              </ul>
+           </li>
+	         <li> What is the relationship of this scheduling/formatting problem with NP-Hard problems, such as the famous Travelling Saleman Problem (Robinson 1949)? What about a more general connection with the multi-user variant of Shannon's (1948) information theory? </li>
+		       <li> Imagine a quantum processor or even distributed quantum processors cooperating on a parallel algorithm. Is this a completely new problem? A harder version than with classical computers? Or easier...? What will the I/O and memory systems look like in the inevitable quantum era? </li>
+        </ul> 
+    </li>
+    <li> <b> Are the existing job scheduling managers for clusters (e.g. SLURM) modern, efficient, and friendly enough? </b>
+        <ul>
+          <li> Given the explosion in accelerators, we would ideally like a system that is compatible with hardware from various vendors. There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable.  </li>
+          <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, and all other sorts of accelators can be seamlessly utilized by a cluster manager? </li>
+          <li> Can the configuration and job submission interfaces be simpler and more accessible to non-technical users? </li>
+        </ul>
+    </li>
+    <li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
+      <ul> 
+        <li> <em> What is an analogous version of Belady's (1966) algorithm in the context of parallel caches and distributed memory? </em> </li> 
+        <li> To what extent has this answer changed in response to newer architectures, such as GPUs, CGRAs, and FPGAs? 
+            <ul>
+              <li> Are we using the scratchpad memory capabilities of GPUs' L1 caches optimally? (i.e. are we cooperating launching kernels and allocating/assigning memory appropriately?) </li> 
+              <li> Does a solution to this problem help solve challenges with the compilation process for reconfigurable chips? </li>
+            </ul>
+        </li>
+        <li> Are the higher levels of the system stack a limiting factor? </li>
+      </ul>
+    </li>
+    <li> <b> Has the absence of locality-optimal thinking from typical programming gone too far? </b>
+      <ul> 
+        <li> <em> Is virtual memory sometimes an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? </em>
+          <ul> 
+            <li> What system changes (architecture, OS, compilation/interface, or networking) would be beneficial to best support a programming environment that assumes physically addressed execution?
+              <ul> 
+                <li> Are there system design opportunities under this physically addressed assumption? 
+                  <ul>                    
+	                   <li> How much savings from no TLB shootdowns? </li>
+                     <li> Would physically addressed execution create new opportunities, or simplify OS/networking stacks, such that it would enhance parallel programs at a distributed scale? </li>
+                  </ul>
+                </li>
+              </ul>
+            <li> Under what circumstances (other than embedded systems) might VM be an unnecessary bottleneck? 
+              <ul>
+                <li> Parallel and distributed applications with single or just a few hungry processes...? </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li> Have the abstractions and indirection of VM impaired how data is structured and how algorithms are devised? 
+            <ul> 
+              <li> Should the programmer bear more or different responsibility? </li> 
+              <li> If we had a different interface + compiler could we find a natural way for programmers to optimize locality? </li>
+            </ul>
+        </li>
+      </ul>
+    </li>
+    <li> <b> Is the fear of parallel programming inflated? </b>
+      <ul> 
+        <li> <em> With more and more data, and hungrier and hungrier algorithms, should/will knowing parallel programming techniques be necessary? </em> 
+          <ul> 
+            <li> If people were exposed to parallel programming earlier on in CS education, would the concepts be easier? (i.e. do people get stuck in their sequential mindset?) </li>
+          </ul>
+        </li>   
+        <li> Does having a small circle of expert developers publish parallel computing libraries (e.g. cuBLAS, cuDNN => PyTorch, TensorFlow, and the like) have long-term negative externalities for effective programming practice?
+          <ul>
+            <li> Don't we want people to understand how the machines operate (i.e. what software is <em> fully </em> doing) and not just "guess"...? </li>
+          </ul>
+        </li>
+        <li> How much more efficient would the world's software be if parallel programming paradigm was natural? How many cycles are wasted? </li>
+      </ul>
+    </li>
+    <li> <b> Would an effective data-flow processor, and compatible system stack on top, render all these questions moot? </b> </li>
+  </ul>
+</p>
+
+<br>
+
+
+  <u> <h3> My Naive View of History and Possibly Unaddressed Issues </h3> </u>
+
+  <p> Memory is today's biggest computational issue: the general purpose von Neumann architectures were not designed to handle massive datasets and parallel computation. Unfortunately, the data-flow ideas and architectural models proposed by Dennis (1974), Gurd et al. (1985), and many others in the 60s, 70s, and 80s did not fully take off. The exponential growth of data availability paired with computationally demanding tasks has revealed the consequences of the industry converging on von Neumann (1945) schemes – loading data is the clear bottleneck.
+  
+  <p> Enlarging out-of-order execution pipelines has served has a temporary solution to hide latency, but this approach is doomed to hit a wall under realistic physical and budget constraints. In tandem with loading memory out-of-order, we employ a diverse memory hierarchy to optimize where data is loaded from. Wilkes' crafty idea of utilizing caches was a gamechanger. Caches are used to exploit temporal (Wilkes 1965) and spatial (Liptay 1968) localities, seemingly natural computational phenomena. They have served the industry well so-far; caches have worked to such an extent that the industry has grown the memory hierarchy with more of them to boost performance - L1, L2, L3! However, we will continue to face more and more demanding problems. The heuristics current systems use to manipulate cache memory can only work to such an extent – the machine's caching decisions lack "semantic" information about the program's future memory accesses! </p>
+
+  <p> Given the state of our current system stack, the task of programming algorithms to effectively utilize hardware caches is quite difficult. It requires first reverse-engineering (reading architecture manual and knowing OS's role) to uncover caching sizes and heuristics. With this information, the programmer can then manipulate the machine (tediously) to their advantage. This is not a feasible solution for widespread efficient-computing. There is the annoyance of portability, obscure data structure layouts, and manual prefetching. A different idea to have fast-code work with the current stack would be to push for cache-oblivious algorithms, which do seem nice in theory. But unfortunately, constants really matter in practice. From an intuitive standpoint, it is hard to imagine cache-oblivious programs reaching maximal practical performance - the program would lack proper "syntactic" information about the machine's capabilities! </p>
+
+  <u> <h3> Here & Now </h3> </u>
+
+  <p> Improving data movement through hardware-friendly, topology-friendly algorithms will yield gains in energy efficiency and run-time performance. I believe that there is room to more effectively utilize the SRAM caches on GPUs by better taking advantage of the scratchpad feature as opposed to the general hardware, heuristic-based L1 policies; a similar, but more general version of Dao et al. (2022). Furthermore, could this problem be extended to create better ways of designing re-configurable chips? </p>
+
+  <u> <h3> Futuristic Thinking </h3> </u> 
+ 
+  <p> A clever compiler and language may be able to bridge the gap. This an algorithmic challenge, but moreso a social problem. </p>
+
+  <p> Compiler writers would need to find the right balance of ease of programming, but collect enough semantic information to tell the machine how to do its job properly. With the correct amount of information, hopefully the compiling algorithm can optimize for locality, but a good solution will likely require theoretical underpinnings that I'm not sure exist, yet. </p>
+
+  </p> The harder challenges lie at a non-technical level, though. Chipmakers would ideally cooperate to enable full control of their accelerators, rather than forcing machines to use proprietary compilers and drivers. Further, programmers would need to learn a new interface. Still though, the smartest compiler in the world is only as good as the features offered by the bare-metal. </p>
+
+  <p> Recently we have seen an explosion in architectures. Most notably, we now have GPUs with massive parallelism and scratchpad memories. FPGAs and CGRAs are more special purpose, but both utilize parallelism and locality to bolster performance and efficiency. These are features that change the notion of "locality" drastically because computations, accompanied by scratchpad memories, are occurring at different places within the chip and at different temporal frequencies! </p>
+
+  <p> Now imagine we are in a distributed setting. We can scale the memory hierarchy upwards to be: disaggregated memory/foreign DRAM to local DRAM to scratchpad memory to registers. I believe the core goal of formalizing locality in order to properly optimize memory still holds and becomes more impactful. </p>
+
+  <br>
+
+  </div>
+
+</body>
+
+</html>
