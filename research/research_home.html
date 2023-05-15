@@ -57,7 +57,7 @@
         <ul>
           <li> Given the explosion in accelerators, we would ideally like a system that is compatible with hardware from various vendors. There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable.  </li>
           <li> How should this higher-lever resource manager interact with collective programming frameworks, such as Nvidia's NCCL? Is this as efficient and scalable as it could be? What about building a system support for non-Nvidia collective programming? </li>
-          <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, CGRAs and all other sorts of accelators can be seamlessly utilized by a cluster manager? </li>
+          <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, CGRAs, and all other sorts of accelators can be seamlessly utilized by a cluster resource manager? </li>
           <li> Can the configuration and job submission interfaces be simpler and more accessible to non-technical users? </li>
         </ul>
     </li>
