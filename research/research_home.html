@@ -37,8 +37,8 @@
       <ul>
         <li> <b> How does a parallel and distributed environment impact the optimal decisions for data placement, data movement, and computation scheduling? </b> 
           <ul> 
-            <li> Given some assumptions at an architectural level (number of cores/latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), <em> can we devise a model to "efficiently" map classes of computation and communication/synchronization patterns onto distributed hardware? </em>
-              <ul>
+            <li> Given some assumptions at an architectural level (number of cores/latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), <em> can we devise a model to "efficiently" map classes of computation and communication/synchronization patterns onto distributed hardware? </em> 
+            <!--   <ul>
                  <li> What is the relationship of this scheduling/formatting problem with NP-Hard problems, such as the famous Bin-Packing Problem (a heterogeneous version of the multiprocessor scheduling application described in Coffman 1978)?  And if we consider the routing aspects, what is the connection with the Travelling Saleman Problem (Robinson 1949)? </li>
 	               <li> Does there already exist a game-theoretic, linear programming approach that is future-proof? Does the polyhedral analysis/compilation literature, such as Bondhugula et al. (2008) or Baghdadi et al. (2019), need to adapt to new architectures and programming models? What about for specialized tensor computations such as in Kjolstad et al. (2017)? 
 	                 <ul>
@@ -50,27 +50,32 @@
                 <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this formatting and scheduling picture? Something taking advantage of a performant distributed/disaggregated system such as MIND (Lee et al., 2021) </li>
               </ul>
            </li>
-	         <
-		       <li> Imagine a quantum processor or even distributed quantum processors cooperating on a parallel algorithm. Is this a completely new problem? A harder version than with classical computers? Or easier...? What will the I/O and memory systems look like in the inevitable quantum era? </li>
+		       <li> Imagine a quantum processor or even distributed quantum processors cooperating on a parallel algorithm. Is this a completely new problem? A harder version than with classical computers? Or easier...? What will the I/O and memory systems look like in the inevitable quantum era? </li> -->
+          </li>
         </ul> 
     </li>
-    <li> <b> Are the existing resource managers for clusters, such as SLURM (Yoo et al., 2003), modern, efficient, portable, and friendly enough? </b>
+    <li> <b> Are the existing resource managers for clusters, such as SLURM (Yoo et al., 2003) or Kubernetes (Verma et al., 2015), modern, efficient, portable, and friendly enough? </b>
         <ul>
-          <li> <em> Given the explosion in architectures and accelerators, we would ideally like a system that is compatible with hardware from various vendors. </em> There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable. SLURM interfaces with Nvidia's Multi-Process Service (MPS) and Multi-Instance (MIG) so multiple jobs can share an individual device's resources; however, there are limitations and this current structure will not be compatible with the advanced GPUs being developed by other vendors. I believe there is room for improved system design. </li>
-          <li> How should this higher-lever resource manager interact with collective programming frameworks, such as Nvidia's NCCL? Is this as efficient and scalable as it could be? What about building a system support for non-Nvidia collective programming? </li>
-          <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, CGRAs, and all other sorts of accelators can be seamlessly utilized by a cluster resource manager? </li>
-          <li> Can the configuration and job submission interfaces be simpler and more accessible to non-technical users? </li>
+          <li> How should this higher-lever resource manager interact with collective programming frameworks, such as Nvidia's NCCL or AMD's RCCL? Is this as efficient and scalable as it could be? What about building a system support for vendor-agnostic collective programming? </li>
+          <!-- <li> <em> Given the explosion in architectures and accelerators, we would ideally like a system that is compatible with hardware from various vendors. </em> There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable. SLURM interfaces with Nvidia's Multi-Process Service (MPS) and Multi-Instance (MIG) so multiple jobs can share an individual device's resources; however, there are limitations and this current structure will not be compatible with the advanced GPUs being developed by other vendors. I believe there is room for improved system design. </li>
+          <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, CGRAs, and all other sorts of accelators can be seamlessly utilized by a cluster resource manager? </li> -->
+          <!-- <li> Can the configuration and job submission interfaces be simpler and more accessible to non-technical users? </li> -->
+          <li> Can users interface with cloud environments in a company-agnostic manner? As suggested in SkyPilot (Yang et al., 2023).
+            <ul>
+              <li> <em> If we restrict computations to be only fundamental linear algebraic and scientific computing kernels, can we devise an efficient framework to enable carrying these algorithms at unprecedented scale? </em> An elastic HPC cloud with simplistic user-interface! </li>
+            </ul>
+          </li>
         </ul>
     </li>
     <li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
       <ul> 
-        <li> <em> What is an analogous version of Belady's (1966) algorithm in the context of parallel caches and distributed memory? </em> </li> 
+<!--         <li> <em> What is an analogous version of Belady's (1966) algorithm in the context of parallel caches and distributed memory? </em> </li> 
         <li> To what extent has this answer changed in response to newer architectures, such as GPUs, CGRAs, and FPGAs? 
             <ul>
               <li> Are we using the scratchpad memory capabilities of GPUs' L1 caches optimally? (i.e. are we cooperating launching kernels and allocating/assigning memory appropriately?) </li> 
               <li> Does a solution to this problem help solve challenges with the compilation process for reconfigurable chips? </li>
             </ul>
-        </li>
+        </li> -->
         <li> Are the higher levels of the system stack a limiting factor? </li>
       </ul>
     </li>
@@ -123,7 +128,7 @@
 
 <br>
 
-
+<!-- 
   <u> <h3> My Naive View of History and Possibly Unaddressed Issues </h3> </u>
 
   <p> Memory is today's biggest computational issue: the general purpose von Neumann architectures were not designed to handle massive datasets and parallel computation. Unfortunately, the data-flow ideas and architectural models proposed by Dennis (1974), Gurd et al. (1985), and many others in the 60s, 70s, and 80s did not fully take off. The exponential growth of data availability paired with computationally demanding tasks has revealed the consequences of the industry converging on von Neumann (1945) schemes – loading data is the clear bottleneck.
@@ -146,7 +151,7 @@
 
   <p> Recently we have seen an explosion in architectures. Most notably, we now have GPUs with massive parallelism and scratchpad memories. FPGAs and CGRAs are more special purpose, but both utilize parallelism and locality to bolster performance and efficiency. These are features that change the notion of "locality" drastically because computations, accompanied by scratchpad memories, are occurring at different places within the chip and at different temporal frequencies! </p>
 
-  <p> Now imagine we are in a distributed setting. We can scale the memory hierarchy upwards to be: disaggregated memory/foreign DRAM to local DRAM to scratchpad memory to registers. I believe the core goal of formalizing locality in order to properly optimize memory still holds and becomes more impactful. </p>
+  <p> Now imagine we are in a distributed setting. We can scale the memory hierarchy upwards to be: disaggregated memory/foreign DRAM to local DRAM to scratchpad memory to registers. I believe the core goal of formalizing locality in order to properly optimize memory still holds and becomes more impactful. </p> -->
 
   <br>
 
