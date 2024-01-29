@@ -56,15 +56,15 @@
     </li>
     <li> <b> Are the existing resource managers for clusters, such as SLURM (Yoo et al., 2003) or Kubernetes (Verma et al., 2015), modern, efficient, portable, and friendly enough? </b>
         <ul>
-          <li> How should this higher-lever resource manager interact with collective programming frameworks, such as Nvidia's NCCL, AMD's RCCL, or Intel's oncCCL? Is this as efficient and scalable as it could be? <em> What about building a system which supports vendor-agnostic collective programming? </em> </li>
+          <!-- <li> How should this higher-lever resource manager interact with collective programming frameworks, such as Nvidia's NCCL, AMD's RCCL, or Intel's oncCCL? Is this as efficient and scalable as it could be? <em> What about building a system which supports vendor-agnostic collective programming? </em> </li> -->
           <!-- <li> <em> Given the explosion in architectures and accelerators, we would ideally like a system that is compatible with hardware from various vendors. </em> There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable. SLURM interfaces with Nvidia's Multi-Process Service (MPS) and Multi-Instance (MIG) so multiple jobs can share an individual device's resources; however, there are limitations and this current structure will not be compatible with the advanced GPUs being developed by other vendors. I believe there is room for improved system design. </li>
           <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, CGRAs, and all other sorts of accelators can be seamlessly utilized by a cluster resource manager? </li> -->
           <!-- <li> Can the configuration and job submission interfaces be simpler and more accessible to non-technical users? </li> -->
-          <li> Will users be able to interface with cloud environments in a company-agnostic manner? As suggested in SkyPilot (Yang et al., 2023).
+          <!-- <li> Will users be able to interface with cloud environments in a company-agnostic manner? As suggested in SkyPilot (Yang et al., 2023).
             <ul>
               <li> <em> If we restrict computations to be only fundamental linear algebraic and scientific computing kernels, can we devise framework to enable carrying out these algorithms at unprecedented scale? While maintaining a simplistic, standard interface? </em> </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
     </li>
     <li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
@@ -114,7 +114,7 @@
             <li> If people were exposed to parallel programming earlier on in CS education, would the concepts be easier? (i.e. do people get stuck in their sequential mindset?) </li>
           </ul>
         </li>   
-        <li> Does having a small circle of expert developers publish parallel computing libraries (e.g. cuBLAS, cuDNN => PyTorch, TensorFlow, and the like) have long-term negative externalities for effective programming practice?
+        <li> Does having a small circle of expert developers publish parallel computing libraries (e.g. cuBLAS, cuDNN, MIOpen, oneDNN, etc. => PyTorch, TensorFlow, and the like) have long-term negative externalities for effective programming practice?
           <ul>
             <li> Don't we want people to understand how the machines operate (i.e. what software is <em> fully </em> doing) and not just "guess"...? </li>
           </ul>
