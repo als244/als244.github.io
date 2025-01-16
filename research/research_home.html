@@ -89,7 +89,7 @@
       </ul>
     </li>
 
-    <li> <b> Are the existing resource managers for clusters (such as SLURM,  Kubernetes, or general cloud-infra) efficient, portable, and friendly enough? </b>
+    <li> <b> Are the existing resource managers for clusters (such as SLURM,  Kubernetes, or general cloud-infra) efficient, portable, and friendly enough to <em> nicely </em> support AI workloads? </b>
         <ul>
           <!-- <li> How should this higher-lever resource manager interact with collective programming frameworks, such as Nvidia's NCCL, AMD's RCCL, or Intel's oncCCL? Is this as efficient and scalable as it could be? <em> What about building a system which supports vendor-agnostic collective programming? </em> </li> -->
           <!-- <li> <em> Given the explosion in architectures and accelerators, we would ideally like a system that is compatible with hardware from various vendors. </em> There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable. SLURM interfaces with Nvidia's Multi-Process Service (MPS) and Multi-Instance (MIG) so multiple jobs can share an individual device's resources; however, there are limitations and this current structure will not be compatible with the advanced GPUs being developed by other vendors. I believe there is room for improved system design. </li>
