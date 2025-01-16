@@ -35,10 +35,10 @@
 
     <p> 
       <ul>
-        <li> <b> <u> How does a parallel and distributed environment impact the optimal decisions for data placement, data movement, and computation scheduling? </u> </b> 
+         <!-- <li> <b> <u> How does a parallel and distributed environment impact the optimal decisions for data placement, data movement, and computation scheduling? </u> </b> 
           <ul> 
             <li> Given some assumptions at an architectural level (number of cores/latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), <em> can we devise a dynamic system to "efficiently" map classes of computation and communication/synchronization patterns onto distributed hardware? </em> 
-            <!--   <ul>
+              <ul>
                  <li> What is the relationship of this scheduling/formatting problem with NP-Hard problems, such as the famous Bin-Packing Problem (a heterogeneous version of the multiprocessor scheduling application described in Coffman 1978)?  And if we consider the routing aspects, what is the connection with the Travelling Saleman Problem (Robinson 1949)? </li>
 	               <li> Does there already exist a game-theoretic, linear programming approach that is future-proof? Does the polyhedral analysis/compilation literature, such as Bondhugula et al. (2008) or Baghdadi et al. (2019), need to adapt to new architectures and programming models? What about for specialized tensor computations such as in Kjolstad et al. (2017)? 
 	                 <ul>
@@ -50,24 +50,15 @@
                 <li> How will RDMA, processing-in-memory, disaggregated memory, and programmable NICs change this formatting and scheduling picture? Something taking advantage of a performant distributed/disaggregated system such as MIND (Lee et al., 2021) </li>
               </ul>
            </li>
-		       <li> Imagine a quantum processor or even distributed quantum processors cooperating on a parallel algorithm. Is this a completely new problem? A harder version than with classical computers? Or easier...? What will the I/O and memory systems look like in the inevitable quantum era? </li> -->
+		       <li> Imagine a quantum processor or even distributed quantum processors cooperating on a parallel algorithm. Is this a completely new problem? A harder version than with classical computers? Or easier...? What will the I/O and memory systems look like in the inevitable quantum era? </li> 
           </li>
         </ul> 
-    </li>
-    <li> <b> Are the existing resource managers for clusters, such as SLURM (Yoo et al., 2003) or Kubernetes (Verma et al., 2015), modern, efficient, portable, and friendly enough? </b>
-        <ul>
-          <!-- <li> How should this higher-lever resource manager interact with collective programming frameworks, such as Nvidia's NCCL, AMD's RCCL, or Intel's oncCCL? Is this as efficient and scalable as it could be? <em> What about building a system which supports vendor-agnostic collective programming? </em> </li> -->
-          <!-- <li> <em> Given the explosion in architectures and accelerators, we would ideally like a system that is compatible with hardware from various vendors. </em> There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable. SLURM interfaces with Nvidia's Multi-Process Service (MPS) and Multi-Instance (MIG) so multiple jobs can share an individual device's resources; however, there are limitations and this current structure will not be compatible with the advanced GPUs being developed by other vendors. I believe there is room for improved system design. </li>
-          <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, CGRAs, and all other sorts of accelators can be seamlessly utilized by a cluster resource manager? </li> -->
-          <!-- <li> Can the configuration and job submission interfaces be simpler and more accessible to non-technical users? </li> -->
-          <!-- <li> Will users be able to interface with cloud environments in a company-agnostic manner? As suggested in SkyPilot (Yang et al., 2023).
-            <ul>
-              <li> <em> If we restrict computations to be only fundamental linear algebraic and scientific computing kernels, can we devise framework to enable carrying out these algorithms at unprecedented scale? While maintaining a simplistic, standard interface? </em> </li>
-            </ul>
-          </li> -->
-        </ul>
-    </li>
-    <li> <b> Do we take advantage of spatial and temporal localities as well as we can? </b>
+    </li> -->
+    
+
+   <li> <b> <u> Do current programming paradigms align with the true world consisting of distributed memories (System RAM, GPU RAM, RDMA)? </b> </u>
+    <ul>
+    <li>  Do we take advantage of spatial and temporal localities as well as we can? 
       <ul> 
 <!--         <li> <em> What is an analogous version of Belady's (1966) algorithm in the context of parallel caches and distributed memory? </em> </li> 
         <li> To what extent has this answer changed in response to newer architectures, such as GPUs, CGRAs, and FPGAs? 
@@ -79,10 +70,8 @@
         <li> Are the higher levels of the system stack a limiting factor? </li>
       </ul>
     </li>
-    <li> <b> Has the absence of locality-optimal thinking from typical programming gone too far? </b>
+    <li> Has the absence of locality-optimal thinking from typical programming gone too far?
       <ul> 
-        <li> Do current programming paradigms align with the true world consisting of distributed memories (System RAM, GPU RAM, Disaggregated Memory Servers, etc.)?
-        <ul>
         <!-- <li> <em> Has the abstraction of virtual memory sometimes an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? </em>
           <ul> 
             <li> What system changes (architecture, OS, compilation/interface, or networking) would be beneficial to best support a programming environment that assumes physically addressed execution? New simple, but intelligent system design opportunities? </li>
@@ -95,10 +84,30 @@
         </li> -->
             <li> Should the programmer bear more or different responsibility? </li> 
             <li> If we had a different interface + compiler could we find a natural way for programmers to optimize locality? </li>
-          </ul>
-        </li>
+        </ul>
+      </li>
       </ul>
     </li>
+
+    <li> <b> Are the existing resource managers for clusters, such as SLURM (Yoo et al., 2003) or Kubernetes (Verma et al., 2015), modern, efficient, portable, and friendly enough? </b>
+        <ul>
+          <!-- <li> How should this higher-lever resource manager interact with collective programming frameworks, such as Nvidia's NCCL, AMD's RCCL, or Intel's oncCCL? Is this as efficient and scalable as it could be? <em> What about building a system which supports vendor-agnostic collective programming? </em> </li> -->
+          <!-- <li> <em> Given the explosion in architectures and accelerators, we would ideally like a system that is compatible with hardware from various vendors. </em> There is current support for CUDA devices, but this support is a second-class priority and the configuration does not appear to be user-friendly or scalable. SLURM interfaces with Nvidia's Multi-Process Service (MPS) and Multi-Instance (MIG) so multiple jobs can share an individual device's resources; however, there are limitations and this current structure will not be compatible with the advanced GPUs being developed by other vendors. I believe there is room for improved system design. </li>
+          <li> SLURM currently has support for Generic Resources (GRES), but I believe that this feature should be treated as a priority and integrated more heavily in a accelerator-dominated era of clusters. Can we add an additional "intelligent" hardware-abstraction layer (similar to first research question) such that AMD or Intel GPUs, Google TPUs, FPGAs, CGRAs, and all other sorts of accelators can be seamlessly utilized by a cluster resource manager? </li> -->
+          <!-- <li> Can the configuration and job submission interfaces be simpler and more accessible to non-technical users? </li> -->
+          <!-- <li> Will users be able to interface with cloud environments in a company-agnostic manner? As suggested in SkyPilot (Yang et al., 2023).
+            <ul>
+              <li> <em> If we restrict computations to be only fundamental linear algebraic and scientific computing kernels, can we devise framework to enable carrying out these algorithms at unprecedented scale? While maintaining a simplistic, standard interface? </em> </li>
+            </ul>
+          </li> -->
+
+          <li> Accelerator-hungry workloads typically require substantial communication and synchronization to ensure correct computation.  Shouldn't there be a <em> natural </em> way for indepedent workloads timeshare expensive accelerators...? <li>
+        </ul>
+    </li>
+
+    <li> <b> The underlying mathematical formulas for many ML workloads can be reduced to GEMM / GEMV + a small set of well-defined functions (normalization, attention, etc.). Why aren't there better abtractions to <em> completely <em> hide the backend, hardware-vendor facing details? It would be nice for end-users to be unburdened by the make/model of the number-crunching machine and obtain the advertised performance. <b> </li>
+
+    
     <li> <b> Is the fear of parallel programming inflated? </b>
       <ul> 
         <li> <em> With more and more data, and hungrier and hungrier algorithms, should/will knowing parallel programming techniques be necessary? </em> 
@@ -114,7 +123,8 @@
         <li> How much more efficient would the world's software be if parallel programming paradigm was natural? How many cycles are wasted? </li>
       </ul>
     </li>
-    <li> <b> Would an effective data-flow processor (or an efficient emuluation of such) and compatible system stack on top, render all these questions moot? </b> </li>
+
+    <li> <b> Would an efficient data-flow system, render all these questions moot? </b> </li>
   </ul>
 </p>
 
