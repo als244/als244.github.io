@@ -37,7 +37,7 @@
       <ul>
         <li> <b> <u> How does a parallel and distributed environment impact the optimal decisions for data placement, data movement, and computation scheduling? </u> </b> 
           <ul> 
-            <li> Given some assumptions at an architectural level (number of cores/latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), <em> can we devise a model to "efficiently" map classes of computation and communication/synchronization patterns onto distributed hardware? </em> 
+            <li> Given some assumptions at an architectural level (number of cores/latency to compute primitive operations and memory hierarchy details) and networking level (topology and latency/bandwidth of the links), <em> can we devise a dynamic system to "efficiently" map classes of computation and communication/synchronization patterns onto distributed hardware? </em> 
             <!--   <ul>
                  <li> What is the relationship of this scheduling/formatting problem with NP-Hard problems, such as the famous Bin-Packing Problem (a heterogeneous version of the multiprocessor scheduling application described in Coffman 1978)?  And if we consider the routing aspects, what is the connection with the Travelling Saleman Problem (Robinson 1949)? </li>
 	               <li> Does there already exist a game-theoretic, linear programming approach that is future-proof? Does the polyhedral analysis/compilation literature, such as Bondhugula et al. (2008) or Baghdadi et al. (2019), need to adapt to new architectures and programming models? What about for specialized tensor computations such as in Kjolstad et al. (2017)? 
@@ -81,29 +81,21 @@
     </li>
     <li> <b> Has the absence of locality-optimal thinking from typical programming gone too far? </b>
       <ul> 
-        <li> <em> Is virtual memory sometimes an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? </em>
+        <li> Do current programming paradigms align with the true world consisting of distributed memories (System RAM, GPU RAM, Disaggregated Memory Servers, etc.)?
+        <ul>
+        <!-- <li> <em> Has the abstraction of virtual memory sometimes an unnecessary bottleneck (considering RAM capacities now compared to in the 60s)? </em>
           <ul> 
             <li> What system changes (architecture, OS, compilation/interface, or networking) would be beneficial to best support a programming environment that assumes physically addressed execution? New simple, but intelligent system design opportunities? </li>
-              <!-- <ul> 
-                <li> Are there system design opportunities under this physically addressed assumption? 
-                  <ul>                    
-	                   <li> How much savings from no TLB shootdowns? </li>
-                     <li> Would physically addressed execution create new opportunities, or simplify OS/networking stacks, such that it would enhance parallel programs at a distributed scale? </li>
-                  </ul>
-                </li>
-              </ul> -->
             <li> Under what circumstances (other than embedded systems) might VM be an unnecessary bottleneck? 
               <ul>
                 <li> Parallel and distributed applications with single or just a few hungry processes...? </li>
               </ul>
             </li>
           </ul>
-        </li>
-        <li> Have the abstractions and indirection of VM impaired how data is structured and how algorithms are devised? 
-            <ul> 
-              <li> Should the programmer bear more or different responsibility? </li> 
-              <li> If we had a different interface + compiler could we find a natural way for programmers to optimize locality? </li>
-            </ul>
+        </li> -->
+            <li> Should the programmer bear more or different responsibility? </li> 
+            <li> If we had a different interface + compiler could we find a natural way for programmers to optimize locality? </li>
+          </ul>
         </li>
       </ul>
     </li>
@@ -122,7 +114,7 @@
         <li> How much more efficient would the world's software be if parallel programming paradigm was natural? How many cycles are wasted? </li>
       </ul>
     </li>
-    <li> <b> Would an effective data-flow processor, and compatible system stack on top, render all these questions moot? </b> </li>
+    <li> <b> Would an effective data-flow processor (or an efficient emuluation of such) and compatible system stack on top, render all these questions moot? </b> </li>
   </ul>
 </p>
 
