@@ -172,7 +172,8 @@ section {
   margin: 0 0 0.6rem;
 }
 
-h1 + .label {
+h1 + .label,
+ul.dated + .label {
   margin-top: 1.75rem;
 }
 
