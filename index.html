@@ -13,73 +13,54 @@
   </head>
   <body>
 
-  <br>
+  <header class="intro">
+    <img class="portrait" src="assets/graduation_pro_pic_small.jpg" alt="Andrew Sheinberg" width="544" height="600">
+    <div>
+      <h1>Andrew Sheinberg</h1>
+      <p>CS PhD Student, Princeton University</p>
+      <p><a href="mailto:asheinb@princeton.edu">asheinb@princeton.edu</a> &middot; <a href="https://github.com/als244">GitHub</a></p>
+    </div>
+  </header>
 
-  <h1>Andrew Sheinberg's Homepage</h1>
+  <nav class="site-nav">
+    <a href="research/research_home.html">Research</a>
+    <a href="teaching/teaching_home.html">Teaching</a>
+    <a href="projects/project_home.html">Side Projects</a>
+    <a href="favorite_pictures.html">Favorite Pictures</a>
+  </nav>
 
-  <div>
-  <a href="/">
-  <img src="assets/graduation_pro_pic.jpg" alt="Andrew Sheinberg" width="258" height="285">
-  </a>
-  </div>
- 
-  <br>
+  <section id="currentWork">
+    <h2>Current Work</h2>
+    <p>Training large, long-context models at near-peak throughput when GPU memory is scarce.</p>
+    <p><strong><a href="https://github.com/als244/shadowspill">ShadowSpill</a></strong>: A system for training within a GPU memory budget. It automatically plans what stays on the GPU and what spills to slower memory. Its planner jointly handles offloading, micro-batch sizing and scheduling, recomputation, and parallelism/sharding.</p>
+    <!-- <p><a href="research/publications/adaws_0216_preprint.pdf">Adaptive Working Set for Transformer Training (Preprint)</a></p> -->
+    <p class="note">Playground: <a href="https://dataflowsim.sunshein.net/">Dataflow Simulator</a>, a simplified version of the ShadowSpill planner that uses theoretical hardware constants to show the benefits of effective offloading.</p>
+  </section>
 
-  <div>
-  <ul>
-  <li> <a href="research/research_home.html">Research</a> </li>
-  <li> <a href="teaching/teaching_home.html">Teaching</a> </li>
-  <li> <a href="projects/project_home.html">Side Projects</a> </li>
-  <li> <a href="favorite_pictures.html">Favorite Pictures</a> </li>
-  </ul>
-  </div>
+  <section id="aboutMe">
+    <h2>About Me</h2>
 
-  <hr>
-  <h2 id="currentWork"> Current Work </h2>
-  <p> Achieving near-peak Transformer training throughput, particularly beneficial in memory- or communication-constrained environments. </p>
-  <h3> <a href="https://github.com/als244/shadowspill">Training Library: High Throughput, Low Memory Usage</a></h3>
-  <!-- <h3> <a href=research/publications/adaws_0216_preprint.pdf>Adaptive Working Set for Transformer Training (Preprint)</a></h3> -->
-  <h4> <a href="https://dataflowsim.sunshein.net/">DNN Dataflow Simulator</a></h4>
+    <p>Hi, I'm Andrew Sheinberg. I'm a fourth-year Computer Science PhD student at Princeton University, advised by Professor Kai Li. Before Princeton, I studied Computer Science &amp; Mathematics at Yale. I grew up in Barrington, RI.</p>
 
-  <hr>
-  <div>
-    <h2 id="aboutMe"> About Me </h2>
+    <p>I build systems software for machine learning. Accelerators keep getting faster, but their memory is expensive and the links to the rest of the system are slow by comparison, so the hard part is often deciding where data lives and when it moves. My recent work borrows classic operating-systems ideas, like working sets and prefetching, to train large, long-context models at near-peak throughput with a fraction of the GPU memory they would otherwise need.</p>
 
-    <p> Hi, I'm Andrew Sheinberg. I am a fourth-year CS PhD student at Princeton University advised by Professor Kai Li. Prior to Princeton, I graduated from Yale, where I studied Computer Science & Mathematics. I grew up in Barrington, RI. 
-    </p>
+    <p>Outside of research, I've linked some side projects I've worked on over the years. I also enjoy traveling, and I've linked a few of my favorite photos above.</p>
+  </section>
 
-    <p>
-    I am researching high-performance machine learning systems. More specifically, I focus on understanding the relationships between operating systems and accelerator + networking software stacks. I'm developing a collection of efficient, robust, and portable software libraries to empower resource-conscious machine learning workloads. In particular, this means maximizing compute utilization under memory or communication constraints. This entails investigating the low-level details of: 
-    <ul>
-      <li> Accelerator Memory Management </li>
-      <li> Accelerator Computation Scheduling </li>
-      <li> Asynchronous Data Transfers across filesystems/host memory/PCIe/accelerator memory/accelerator interconnects/network </li>
-      <li> InfiniBand/RoCE</li>
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <p class="label">Teaching Assistant (Princeton)</p>
+    <ul class="dated">
+      <li><span><a href="teaching/cos568.html">COS 568: Systems and Machine Learning</a></span> <span class="when">Spring '27</span></li>
+      <li><span>COS 217: Introduction to Programming Systems</span> <span class="when">Spring '25</span></li>
+      <li><span>COS 375: Computer Architecture and Organization</span> <span class="when">Fall '24</span></li>
     </ul>
-</p>
-	
-     <p> There is a link to some side projects I've worked on over the years. I enjoy traveling and have linked some of my favorite photos. </p>
+  </section>
 
-  </div>
-
-  <hr>
-  <h2 id="teaching"> Teaching </h2>
-  <h4> Teaching Assistant (Princeton) </h4>
-  <ul>
-  <li> <a href="teaching/cos568.html">COS 568 (Spring '27): Systems and Machine Learning</a> </li>
-  <li> COS 217 (Spring '25): Introduction to Programming Systems </li>
-  <li> COS 375 (Fall '24): Computer Architecture and Organization </li>
-  </ul>
-
-  <hr>
-  <div>
-    <h2 id="contact"> Contact </h2>
-    Feel free to email me at: <a href="mailto:asheinb@princeton.edu">asheinb@princeton.edu</a>
-    <br>
-    <br>
-  </div>
-
-  <br>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Feel free to email me at: <a href="mailto:asheinb@princeton.edu">asheinb@princeton.edu</a></p>
+  </section>
 
   </body>
 </html>

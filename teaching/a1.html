@@ -4,52 +4,53 @@
 <meta charset="utf-8">
 <title>COS568 Assignment 1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/main.css" type="text/css">
 <style>
+/* Colors, fonts and links come from /static/main.css; this block only lays out this long page. */
 * { box-sizing: border-box; }
-body { margin: 0; padding-bottom: 40px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-       font-size: 14px; line-height: 1.42857; color: #333; background: #fff; }
-.container { max-width: 1170px; margin: 0 auto; padding: 0 15px; }
-.row { display: flex; align-items: flex-start; gap: 30px; }
-.sidebar { flex: 0 0 23%; position: sticky; top: 30px; max-height: 90vh; overflow-y: auto; }
+body { max-width: none; padding: 3rem 0 4rem; font-size: 16px; line-height: 1.6; }
+.container { max-width: 1170px; margin: 0 auto; padding: 0 1.25rem; }
+.row { display: flex; align-items: flex-start; gap: 3rem; }
+.sidebar { flex: 0 0 23%; position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; font-size: 0.9rem; line-height: 1.45; }
+.sidebar p { margin-bottom: 1rem; }
 .sidebar ul { list-style: none; margin: 0; padding: 0; }
-.sidebar ul ul { padding-left: 14px; font-size: 12.5px; }
-.sidebar li a { display: block; padding: 3px 0; color: #767676; }
-.sidebar li a:hover { color: #563d7c; text-decoration: none; }
+.sidebar li { margin: 0; }
+.sidebar ul ul { padding-left: 0.85rem; margin: 0 0 0.4rem; font-size: 0.85rem; }
+.sidebar li a { display: block; padding: 0.15rem 0; color: var(--muted); text-decoration: none; }
+.sidebar li a:hover { color: var(--accent); }
 .content { flex: 1 1 0; min-width: 0; }
-h1, h2, h3, h4 { font-weight: 500; line-height: 1.1; margin: 20px 0 10px; }
-h1 { font-size: 36px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; }
-h1 small { font-size: 65%; font-weight: normal; color: #777; }
-p { margin: 0 0 10px; }
-ul, ol { margin: 0 0 10px; padding-left: 28px; }
-a { color: #428bca; text-decoration: none; } a:hover { text-decoration: underline; }
-hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
-code { padding: 2px 4px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 90%;
-       color: #c7254e; background: #f9f2f4; border-radius: 4px; }
-pre { margin: 0 0 10px; padding: 9.5px; overflow: auto; font-size: 13px; line-height: 1.42857;
-      color: #e0e2e4; background: #293134; border: 1px solid #ccc; border-radius: 4px;
-      scrollbar-width: thin; scrollbar-color: #66747b #293134; }
+.content h1 { margin-top: 0; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1.2rem; margin: 2rem 0 0.6rem; }
+h4 { font-size: 1.05rem; }
+h1 small { display: block; margin-top: 0.4rem; font-size: 1rem; font-weight: 400; letter-spacing: 0; color: var(--muted); }
+hr { margin: 1.75rem 0; }
+pre { margin: 0 0 1rem; padding: 0.85rem 1rem; overflow: auto; font-size: 13px; line-height: 1.5;
+      color: #e0e2e4; background: #263034; border-radius: 6px;
+      scrollbar-width: thin; scrollbar-color: #66747b #263034; }
 pre code { padding: 0; font-size: inherit; color: inherit; background: none; white-space: pre; }
-blockquote { margin: 0 0 20px; padding: 10px 20px; font-size: 17.5px; border-left: 5px solid #eee; }
+blockquote { margin: 0 0 1.25rem; padding: 0.6rem 1.25rem; border-left: 4px solid var(--rule); }
 blockquote > :last-child { margin-bottom: 0; }
-blockquote pre { font-size: 13px; }
-blockquote.coding { border-left-color: #428bca; }
+blockquote.coding { border-left-color: #4a86d4; }
 blockquote.experiment { border-left-color: #8e6bbf; }
-blockquote.written { border-left-color: #5cb85c; }
-blockquote.challenge { border-left-color: #f0ad4e; }
-blockquote > p:first-child em { font-size: 13px; font-style: normal; color: #777; }
-table { margin: 0 0 20px; border-collapse: collapse; }
-th, td { padding: 8px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; }
-th { border-top: 0; border-bottom: 2px solid #ddd; white-space: nowrap; }
+blockquote.written { border-left-color: #4fa84f; }
+blockquote.challenge { border-left-color: #e3a13b; }
+blockquote > p:first-child em { font-size: 0.85rem; font-style: normal; color: var(--muted); }
+table { margin: 0 0 1.25rem; border-collapse: collapse; font-size: 0.95rem; }
+th, td { padding: 0.5rem 1rem 0.5rem 0; text-align: left; vertical-align: top; border-top: 1px solid var(--rule); }
+th { border-top: 0; border-bottom: 1px solid var(--muted); font-weight: 600; white-space: nowrap; }
 td code { white-space: nowrap; }
-@media (max-width: 991px) { .row { display: block; } .sidebar { position: static; max-height: none; } }
-@media print { .sidebar { display: none; } }
+.crumbs { margin-bottom: 2rem; }
+@media (max-width: 991px) { .row { display: block; } .sidebar { position: static; max-height: none; margin-bottom: 2rem; } }
+@media print { .sidebar, .crumbs { display: none; } }
 </style>
 </head>
 <body>
 <div class="container">
+<nav class="crumbs"><a href="/">Andrew Sheinberg</a><span class="sep">/</span><a href="teaching_home.html">Teaching</a><span class="sep">/</span><a href="cos568.html">COS 568</a><span class="sep">/</span>Assignment 1</nav>
 <div class="row">
 <div class="sidebar">
-<p><strong><a href="#">COS568</a> Assignment 1: Performance Profiling</strong><br>due TBD</p>
+<p><strong><a href="cos568.html">COS568</a> Assignment 1: Performance Profiling</strong><br>due TBD</p>
 <ul>
 <li><a href="#introduction">Introduction</a>
 <ul>
