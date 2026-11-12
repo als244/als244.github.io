@@ -31,7 +31,7 @@
 
   <section id="currentWork">
     <h2>Current Work</h2>
-    <p>Training large, long-context models at near-peak throughput when GPU memory is scarce.</p>
+    <p>Training large, long-context models at near-peak throughput using minimal GPU memory through effective offloading.</p>
     <p><strong><a href="https://github.com/als244/shadowspill">ShadowSpill</a></strong>: A system for training within a GPU memory budget. It automatically plans what stays on the GPU and what spills to slower memory. Its planner jointly handles offloading, micro-batch sizing and scheduling, recomputation, and parallelism/sharding.</p>
     <!-- <p><a href="research/publications/adaws_0216_preprint.pdf">Adaptive Working Set for Transformer Training (Preprint)</a></p> -->
     <p class="note">Playground: <a href="https://dataflowsim.sunshein.net/">Dataflow Simulator</a>, a simplified version of the ShadowSpill planner that uses theoretical hardware constants to show the benefits of effective offloading.</p>
